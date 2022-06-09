@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "719696277643",
+    "project_id": "femali",
+    "storage_bucket": "femali.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719696277643:android:4bffc2b4fcdae00443a48e",
+        "android_client_info": {
+          "package_name": "de.janoroid.femali"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719696277643-v5chuml1u8o4lgqctq50cfvjdujhbd1v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "de.janoroid.femali",
+            "certificate_hash": "53c43f4be70f231d46fa8d659f5310f2c84ec358"
+          }
+        },
+        {
+          "client_id": "719696277643-m9k2qvus1lb8usbovpghbno9o7oflu67.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbOIgzsYwsA9NuxJW-IqeZxcHRDQao87M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719696277643-m9k2qvus1lb8usbovpghbno9o7oflu67.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

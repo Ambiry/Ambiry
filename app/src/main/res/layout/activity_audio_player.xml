@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1D2C3B"
+    tools:context=".AudioPlayerActivity">
+
+
+    <ImageButton
+        android:id="@+id/arrowButton"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/arrowdownicon">
+
+    </ImageButton>
+
+
+    <ImageButton
+        android:id="@+id/castbutton"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/casticon">
+
+    </ImageButton>
+
+    <ImageView
+        android:id="@+id/podcastImageview"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/imageview_border">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/textviewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="380dp"
+
+        android:text="Odesza - Der Podcast\nDer heutige Gast ist Juljano"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="18sp">
+
+    </TextView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="580dp"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/textviewcurrentime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:textColor="#ffffff"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <SeekBar
+            android:id="@+id/seekbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </SeekBar>
+
+        <TextView
+            android:id="@+id/textviewremainingtime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1:20"
+            android:textColor="#ffffff"
+            android:textStyle="bold">
+
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="450dp"
+        android:gravity="center"
+
+        android:padding="5dp">
+
+        <ImageButton
+            android:id="@+id/skippreviousbutton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/skippreviousbutton">
+
+        </ImageButton>
+
+
+        <ImageButton
+            android:id="@+id/playbutton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_margin="60dp"
+            android:background="@drawable/playicon">
+
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/skipnextbutton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/skipnextbutton">
+
+        </ImageButton>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+        <ImageButton
+            android:id="@+id/descriptionButton"
+            android:layout_width="30dp"
+            android:layout_marginStart="5dp"
+            android:layout_height="30dp"
+            android:background="@drawable/descriptionicon">
+
+        </ImageButton>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/thumbupButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/thumbupicon">
+
+        </ImageButton>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/commentButon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/commenticon">
+
+        </ImageButton>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+
+        <ImageButton
+            android:id="@+id/playlistadButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/playlistaddicon">
+
+        </ImageButton>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.5" />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

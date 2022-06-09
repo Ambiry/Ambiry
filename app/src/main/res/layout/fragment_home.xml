@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1D2C3B"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HomeFragment">
+
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineleft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="20dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineright"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="20dp" />
+
+            <ImageButton
+                android:id="@+id/imageButtonSettings"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                app:civ_border_color="#1D2C3B"
+                app:civ_border_width="2dp"
+                android:background="@drawable/settingicon"
+                app:layout_constraintEnd_toStartOf="@id/guidelineright"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@id/guidelineleft"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewWelcome"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:textColor="#ffffff"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/guidelineright"
+                app:layout_constraintStart_toEndOf="@id/guidelineleft"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="75dp"
+                android:text="@string/what_will_you_hear_today"
+                android:textColor="#ffffff"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/guidelineright"
+                app:layout_constraintStart_toEndOf="@id/guidelineleft"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/textviewFirstStart"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:layout_marginTop="160dp"
+                app:layout_constraintEnd_toStartOf="@id/guidelineright"
+                app:layout_constraintStart_toEndOf="@id/guidelineleft"
+                app:layout_constraintTop_toTopOf="parent">
+            </TextView>
+
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollViewSub"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="130dp"
+                app:layout_constraintEnd_toStartOf="@id/guidelineright"
+                app:layout_constraintStart_toEndOf="@id/guidelineleft"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" />
+
+            </HorizontalScrollView>
+
+
+
+            <TextView
+                android:id="@+id/textviewRecommend"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="300dp"
+                android:text="@string/discover_something"
+                android:textColor="#ffffff"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/guidelineright"
+                app:layout_constraintStart_toEndOf="@id/guidelineleft"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollViewRecommend"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="350dp"
+                app:layout_constraintEnd_toStartOf="@id/guidelineright"
+                app:layout_constraintStart_toEndOf="@id/guidelineleft"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" />
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/textViewForYou"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="520dp"
+                android:text="@string/for_you"
+                android:textColor="#ffffff"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/guidelineright"
+                app:layout_constraintStart_toEndOf="@id/guidelineleft"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollViewForYou"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="570dp"
+                app:layout_constraintEnd_toStartOf="@id/guidelineright"
+                app:layout_constraintStart_toEndOf="@id/guidelineleft"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" />
+            </HorizontalScrollView>
+
+
+            <TextView
+                android:id="@+id/textViewPlaylist"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="740dp"
+                android:text="@string/playlistforyou"
+                android:textColor="#ffffff"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/guidelineright"
+                app:layout_constraintStart_toEndOf="@id/guidelineleft"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollViewPlaylist"
+                android:layout_width="0dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="790dp"
+                app:layout_constraintEnd_toStartOf="@id/guidelineright"
+                app:layout_constraintStart_toEndOf="@id/guidelineleft"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" />
+            </HorizontalScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
