@@ -38,14 +38,14 @@ public class HomeFragment extends Fragment {
 
         });
 
-        getwelcomeText();
+        setWelcomeText();
 
 
 
         return view;
     }
 
-    private void getwelcomeText(){
+    private void setWelcomeText(){
 
         //get current Time
         int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);

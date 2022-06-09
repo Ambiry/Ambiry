@@ -45,7 +45,7 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //open the Browser
-                startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("http://www.Janoroid.de/impressum.html")));
+                startActivity(new Intent(Intent.ACTION_VIEW,Uri.parse("https://www.Janoroid.de/")));
             }
         });
 

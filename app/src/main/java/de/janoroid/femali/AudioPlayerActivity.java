@@ -14,7 +14,6 @@ public class AudioPlayerActivity extends AppCompatActivity {
     ImageButton playButton,skippreviousButton,skipnextButton,descriptionButton,thumbupButton,commentButton,playlistaddButton,castButton,arrowDownButton;
     TextView textViewTitle,textViewremainingTime,textViewcurrentTime;
     SeekBar seekBarDuration;
-
     MediaPlayer mediaPlayer;
 
 

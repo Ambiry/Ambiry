@@ -46,9 +46,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Back to RegisterActivity
-                Intent backToHome = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(backToHome);
-                finish();
+               onBackPressed();
             }
         });
     }
