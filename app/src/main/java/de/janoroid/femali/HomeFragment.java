@@ -50,11 +50,11 @@ public class HomeFragment extends Fragment {
         //get current Time
         int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
 
-        if (currentHour < 11){
+        if (currentHour < 12){
 
             textviewGreeting.setText(R.string.goodMorning);
 
-        }else if (currentHour > 11 & currentHour < 18){
+        }else if (currentHour < 18){
 
             textviewGreeting.setText(R.string.goodDay);
 

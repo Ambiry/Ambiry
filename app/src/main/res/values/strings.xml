@@ -19,6 +19,10 @@
     <string name="AGB">Informationen zur Verarbeitung deiner Daten findest du in unserer Datenschutzerklärungen</string>
     <string name="Terms_of_Use">Es gelten unsere Nutzungsbedingungen</string>
 
+    <string name="logout">Abmelden</string>
+
+    <string name="account">Konto</string>
+
 
     <string name="FirstName">Vorname</string>
     <string name="EMail">E-Mail</string>

@@ -66,6 +66,9 @@ public class LoginActivity extends AppCompatActivity {
          String password = editTextPassword.getText().toString();
          String email = editTextEmailAdress.getText().toString().trim();
 
+        // Get Firebase auth instance
+        mAuth = FirebaseAuth.getInstance();
+
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override

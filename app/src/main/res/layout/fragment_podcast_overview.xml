@@ -21,22 +21,23 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="20dp" />
 
+
     <ImageButton
         android:id="@+id/imageButtonBackbutton"
         android:layout_width="28dp"
         android:layout_height="28dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
         android:background="@drawable/backbuttonicon"
-        app:layout_constraintStart_toEndOf="@id/guidelineleft"
-        app:layout_constraintTop_toTopOf="parent">
-    </ImageButton>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 
     <ImageButton
         android:id="@+id/imageButtonNotification"
         android:layout_width="28dp"
         android:layout_height="28dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/notificationicon"
         app:layout_constraintEnd_toStartOf="@id/guidelineright"
         app:layout_constraintTop_toTopOf="parent">
@@ -47,9 +48,10 @@
         android:id="@+id/imageviewPodcastPicture"
         android:layout_width="320dp"
         android:layout_height="288dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="60dp"
         android:scaleType="fitXY"
         android:src="@drawable/podcasticon"
+        android:background="@drawable/imageview_border"
         app:layout_constraintEnd_toStartOf="@id/guidelineright"
         app:layout_constraintStart_toStartOf="@+id/guidelineleft"
         app:layout_constraintTop_toTopOf="parent" />
@@ -88,7 +90,6 @@
             android:background="@drawable/roundbutton"
             android:text="@string/playbutton"
             android:textAlignment="center"
-
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="13sp"

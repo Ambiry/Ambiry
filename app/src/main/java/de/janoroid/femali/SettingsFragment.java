@@ -9,10 +9,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Objects;
 
 
 public class SettingsFragment extends Fragment {
@@ -21,6 +26,7 @@ public class SettingsFragment extends Fragment {
     SwitchCompat streamingMobileSwitch, downloadMobileSwitch,enableNotificationSwitch;
     Spinner soundQualitySpinner;
     ImageButton ImageButtonBackButton;
+    Button logoutButton;
 
 
 
@@ -37,8 +43,9 @@ public class SettingsFragment extends Fragment {
         soundQualitySpinner = view.findViewById(R.id.soundqualitySpinner);
         ImageButtonBackButton = view.findViewById(R.id.imageButtonBackbutton);
 
-        getSettingsStates();
+        logoutButton = view.findViewById(R.id.buttonLogout);
 
+        getSettingsStates();
 
 
         textviewGotoWebsite.setOnClickListener(new View.OnClickListener() {
@@ -106,6 +113,19 @@ public class SettingsFragment extends Fragment {
                 Intent backToHome = new Intent(getActivity(), MainActivity.class);
                 startActivity(backToHome);
                 getActivity().finish();
+            }
+        });
+
+
+
+        //LogOut
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getActivity(),RegisterActivity.class);
+                startActivity(intent);
+                requireActivity().finish();
             }
         });
 

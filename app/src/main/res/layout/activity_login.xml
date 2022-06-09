@@ -12,12 +12,11 @@
         android:id="@+id/imageButtonBackbutton"
         android:layout_width="28dp"
         android:layout_height="28dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
         android:background="@drawable/backbuttonicon"
-        app:layout_constraintStart_toEndOf="@id/guidelineleft"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </ImageButton>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineleft"

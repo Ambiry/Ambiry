@@ -28,11 +28,11 @@
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_playlist.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_podcast_episode.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_podcast_overview.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_podcast_overview.xml" value="0.2795031055900621" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.20496894409937888" />
         <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.24351851851851852" />
         <entry key="app/src/main/res/layout/fragment_similar_podcasts.xml" value="0.23425925925925925" />
         <entry key="app/src/main/res/layout/fragment_subscription.xml" value="0.1" />
         <entry key="app/src/main/res/layout/imageview_border.xml" value="0.21944444444444444" />

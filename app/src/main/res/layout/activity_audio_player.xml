@@ -37,6 +37,7 @@
         android:layout_height="300dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
+        android:src="@drawable/podcasticon"
         android:background="@drawable/imageview_border">
 
     </ImageView>
