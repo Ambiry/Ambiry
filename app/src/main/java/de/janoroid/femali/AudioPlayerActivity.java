@@ -12,7 +12,7 @@ import java.io.IOException;
 public class AudioPlayerActivity extends AppCompatActivity {
 
     ImageButton playButton,skippreviousButton,skipnextButton,descriptionButton,thumbupButton,commentButton,playlistaddButton,castButton,arrowDownButton;
-    TextView textViewTitle,textViewremainingTime,textViewcurrentTime;
+    TextView textViewTitle,textViewremainingTime,textViewcurrentTime, textViewAudioName;
     SeekBar seekBarDuration;
     MediaPlayer mediaPlayer;
 
@@ -31,6 +31,7 @@ public class AudioPlayerActivity extends AppCompatActivity {
         playlistaddButton = findViewById(R.id.playlistadButton);
         castButton = findViewById(R.id.castbutton);
         textViewTitle = findViewById(R.id.textviewTitle);
+        textViewAudioName = findViewById(R.id.textviewAudioName);
         textViewremainingTime = findViewById(R.id.textviewremainingtime);
         textViewcurrentTime = findViewById(R.id.textviewcurrentime);
         seekBarDuration = findViewById(R.id.seekbar);

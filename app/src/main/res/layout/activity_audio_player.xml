@@ -43,14 +43,31 @@
     </ImageView>
 
     <TextView
-        android:id="@+id/textviewTitle"
+        android:id="@+id/textviewAudioName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="380dp"
+        android:text="Odesza"
+        android:layout_marginStart="50dp"
+        android:textStyle="bold"
+        android:textAlignment="textStart"
+        android:textColor="#ffffff"
+        android:textSize="20sp">
 
-        android:text="Odesza - Der Podcast\nDer heutige Gast ist Juljano"
-        android:textAlignment="center"
+    </TextView>
+
+
+    <TextView
+        android:id="@+id/textviewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="50dp"
+        android:layout_below="@id/textviewAudioName"
+        android:text="Der heutige Gast ist Juljano"
+        android:textAlignment="viewStart"
         android:textColor="#ffffff"
         android:textSize="18sp">
 
@@ -70,7 +87,6 @@
             android:text="00:00"
             android:textColor="#ffffff"
             android:textStyle="bold">
-
         </TextView>
 
         <SeekBar
@@ -85,7 +101,7 @@
             android:id="@+id/textviewremainingtime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1:20"
+            android:text="00:00"
             android:textColor="#ffffff"
             android:textStyle="bold">
 

@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
                         case R.id.search:
 
-                            fragment = new PodcastOverviewFragment();
+                            fragment = new OverviewFragment();
                             break;
 
                         case R.id.library:

@@ -5,7 +5,6 @@
     <string name="what_will_you_hear_today">was wirst du heute hören?</string>
     <string name="appSettings">App-Einstellungen</string>
     <string name="playlistforyou">Für dich erstellte Playlisten</string>
-    <string name="for_yound_and_old">Alle Rubriken für Jung und Alt</string>
     <string name="soundQuality">Tonqualität einstellen</string>
 
     <string name="TablayoutPlaylist">Playlisten</string>
@@ -50,16 +49,10 @@
     <string name="home">Home</string>
     <string name="search">Search</string>
     <string name="library">Library</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
 
     <string name="popupmenuDownload">Downloaden</string>
-
     <string name="createPlaylistTextview">Neue Playlist erstellen</string>
-
     <string name="createPlaylistButton">Playlist erstellen</string>
-
     <string name="goodMorning">Guten Morgen,</string>
     <string name="goodEvening">Guten Abend,</string>
     <string name="goodDay">Guten Tag,</string>

@@ -10,11 +10,11 @@ import android.widget.ImageButton;
 import com.google.android.material.tabs.TabLayout;
 
 
-public class PodcastOverviewFragment extends Fragment {
+public class OverviewFragment extends Fragment {
 
     TabLayout tabLayout;
     ViewPager2 viewPager;
-    ViewpagerPodcastOverviewAdapter viewpageAdapter;
+    ViewpagerOverviewAdapter viewpageAdapter;
     ImageButton imageButtonBackButton,imageButtonNotification;
 
 
@@ -24,13 +24,13 @@ public class PodcastOverviewFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_podcast_overview, container, false);
+        View view = inflater.inflate(R.layout.fragment_overview, container, false);
 
         tabLayout = view.findViewById(R.id.tabLayout);
         viewPager = view.findViewById(R.id.viewpager);
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        viewpageAdapter = new ViewpagerPodcastOverviewAdapter(fragmentManager,getLifecycle());
+        viewpageAdapter = new ViewpagerOverviewAdapter(fragmentManager,getLifecycle());
         viewPager.setAdapter(viewpageAdapter);
 
         // The Tabs get a Namen

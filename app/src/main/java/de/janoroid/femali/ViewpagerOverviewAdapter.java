@@ -5,10 +5,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-public class ViewpagerPodcastOverviewAdapter extends FragmentStateAdapter {
+public class ViewpagerOverviewAdapter extends FragmentStateAdapter {
 
     // The Adapter is for the PodcastOverviewFragment
-    public ViewpagerPodcastOverviewAdapter(@NonNull FragmentManager fragmentActivity , Lifecycle lifecycle) {
+    public ViewpagerOverviewAdapter(@NonNull FragmentManager fragmentActivity , Lifecycle lifecycle) {
         super(fragmentActivity,lifecycle);
     }
 
@@ -18,14 +18,14 @@ public class ViewpagerPodcastOverviewAdapter extends FragmentStateAdapter {
 
        if (position==1){
 
-        return new AboutThePodcastFragment();
+        return new DescriptionFragment();
 
        }else if (position==2){
 
-        return new SimilarPodcastsFragment();
+        return new RecommandationFragment();
 
        }
-       return new PodcastEpisodeFragment();
+       return new EpisodeFragment();
     }
 
     @Override
