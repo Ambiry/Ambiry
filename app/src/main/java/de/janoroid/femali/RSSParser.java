@@ -13,18 +13,18 @@ import java.util.List;
 
 public class RSSParser extends AsyncTask<Void,Void,Object> {
 
-    String title = null;
-    String link = null;
-    String description = null;
-    String image = null;
-    String keywords = null;
-    String duration = null;
-    String date = null;
-    String audioUrl = null;
-    String category = null;
-    String summary = null;
-    boolean isItemAvailable = false;
-    List<RSSItems> items = new ArrayList<>();
+    private String title = null;
+    private String links = null;
+    private String description = null;
+    private String image = null;
+    private String keywords = null;
+    private String duration = null;
+    private String date = null;
+    private String audioUrl = null;
+    private String category = null;
+    private String summary = null;
+    private boolean isItemAvailable = false;
+    private List<RSSItems> items = new ArrayList<>();
     InputStream inputStream;
 
 
@@ -79,7 +79,7 @@ public class RSSParser extends AsyncTask<Void,Void,Object> {
                 } else if (name.equalsIgnoreCase("link")) {
 
                     Log.d("XmlParser", "Parsing link ==> " + result);
-                    link = result;
+                    links = result;
 
                 } else if (name.equalsIgnoreCase("description")) {
 
@@ -93,10 +93,23 @@ public class RSSParser extends AsyncTask<Void,Void,Object> {
 
                 } else if (name.equalsIgnoreCase("itunes:image")) {
 
-                    Log.d("XmlParser", "Parsing image ==> " + image);
-                    image = result;
+                    int attributeCount = xmlPullParser.getAttributeCount();
+
+                    for(int i = 0; i<attributeCount; i++){
+
+                        String attrib = xmlPullParser.getAttributeName(i);
+
+                    if(attrib.equalsIgnoreCase("href")){
+
+                            result = xmlPullParser.getAttributeValue(i);
+
+                            Log.d("XmlParser", "Parsing imageUrl ==> " + result);
+                            image = result;
+                        }
+                    }
 
                 } else if (name.equalsIgnoreCase("itunes:keywords")) {
+
 
                     Log.d("XmlParser", "Parsing keywords ==> " + result);
                     keywords = result;
@@ -108,8 +121,18 @@ public class RSSParser extends AsyncTask<Void,Void,Object> {
 
                 } else if (name.equalsIgnoreCase("enclosure")) {
 
-                    Log.d("XmlParser", "Parsing audio ==> " + result);
-                    audioUrl = result;
+                    int attributeCount = xmlPullParser.getAttributeCount();
+
+                    for(int i = 0; i<attributeCount; i++){
+                        String attrib = xmlPullParser.getAttributeName(i);
+
+                    if(attrib.equalsIgnoreCase("url")){
+                            result = xmlPullParser.getAttributeValue(i);
+
+                            Log.d("XmlParser", "Parsing audioURL ==> " + result);
+                            audioUrl = result;
+                        }
+                    }
 
                 } else if (name.equalsIgnoreCase("category")) {
 
@@ -122,14 +145,13 @@ public class RSSParser extends AsyncTask<Void,Void,Object> {
                     summary = result;
                 }
 
-                if (title != null && link != null && description != null) {
                     if (isItemAvailable) {
                         RSSItems item = new RSSItems(title, description, image, date, duration, audioUrl, keywords, category, summary);
                         items.add(item);
                     }
 
                     title = null;
-                    link = null;
+                    links = null;
                     description = null;
                     image = null;
                     keywords = null;
@@ -139,8 +161,6 @@ public class RSSParser extends AsyncTask<Void,Void,Object> {
                     category = null;
                     summary = null;
                     isItemAvailable = false;
-
-                }
             }
 
         } catch (XmlPullParserException | IOException e) {
