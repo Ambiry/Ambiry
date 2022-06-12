@@ -24,7 +24,7 @@ public class RSSParser extends AsyncTask<ArrayList<Object>, Void, Object> {
     private String category = null;
     private String summary = null;
     private boolean isItemAvailable = false;
-    private List<RSSItems> items = new ArrayList<>();
+    private List<RSSItems> items;
     InputStream inputStream;
 
 
@@ -35,8 +35,10 @@ public class RSSParser extends AsyncTask<ArrayList<Object>, Void, Object> {
 
             for (ArrayList<Object> ArrayListLinks : linksArrayList) {
 
+                Log.d("TAG",ArrayListLinks.toString());
+
                 //get the Links of the Arraylist
-                URL rssUrl = new URL(ArrayListLinks.toString());
+                URL rssUrl = new URL(linksArrayList.toString());
 
                 inputStream = rssUrl.openStream();
 
@@ -148,9 +150,11 @@ public class RSSParser extends AsyncTask<ArrayList<Object>, Void, Object> {
                         summary = result;
                     }
 
+                    //get the Information of RSS-Feed
                     if (isItemAvailable) {
-                        RSSItems item = new RSSItems(title, description, image, date, duration, audioUrl, keywords, category, summary);
-                        items.add(item);
+                        RSSItems rssItems = new RSSItems(title, description, image, date, duration, audioUrl, keywords, category, summary);
+                        items = new ArrayList<>();
+                        items.add(rssItems);
                     }
                 }
 
