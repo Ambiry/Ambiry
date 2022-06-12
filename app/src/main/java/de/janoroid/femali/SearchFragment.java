@@ -1,4 +1,5 @@
 package de.janoroid.femali;
+import android.graphics.Color;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -6,7 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.SearchView;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
 public class SearchFragment extends Fragment {
@@ -33,11 +37,18 @@ public class SearchFragment extends Fragment {
 
         searchView.setQueryHint(getString(R.string.browse_everything));
 
+        //Applies white color on searchview text
+        int id = searchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
+        TextView textView = (TextView) searchView.findViewById(id);
+        textView.setTextColor(Color.WHITE);
+
+
         searchView.setOnClickListener(v -> {
 
             //enable the user to click anywhere on the SearchView
             searchView.setIconified(false);
         });
+
 
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

@@ -1,11 +1,9 @@
 package de.janoroid.femali;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -42,16 +40,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
 
-        laodDataFromDatabase laodDataFromDatabase = new laodDataFromDatabase();
-        laodDataFromDatabase.execute();
+        new laodDataFromDatabase().execute();
 
         super.onStart();
 
     }
 
 
-    //get the Links from Firebase und parsed the Podcasts
-    private class laodDataFromDatabase extends AsyncTask<String, Void, String> implements de.janoroid.femali.laodDataFromDatabase {
+    //get the Links from Firebase
+    private class laodDataFromDatabase extends AsyncTask<String, Void, String> {
 
         @Override
         protected String doInBackground(String... params) {
@@ -70,8 +67,12 @@ public class MainActivity extends AppCompatActivity {
                      links.add(String.valueOf(dsp.getValue())); //add links into arraylist
 
 
-                    }
+
+
+
+                }
                      Log.d("TAG", "Value is: " + links);
+                     onPostExecute(links);
 
                 }
 
@@ -85,13 +86,9 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
 
-        @Override
-        protected void onPostExecute(String result) {
+        protected void onPostExecute(ArrayList result) {
 
-            RSSParser rssParser = new RSSParser();
-            rssParser.execute(links);
-
-            new RSSParser().execute(links);
+            new RSSParser().execute(result);
 
         }
 
@@ -106,33 +103,29 @@ public class MainActivity extends AppCompatActivity {
 
 
     // BottomNavigationMenu
-    private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                   Fragment fragment = null;
+    private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener = item -> {
+               Fragment fragment = null;
 
-                    switch (item.getItemId()) {
+                switch (item.getItemId()) {
 
-                        case R.id.home:
+                    case R.id.home:
 
-                            fragment = new HomeFragment();
-                            break;
+                        fragment = new HomeFragment();
+                        break;
 
-                        case R.id.search:
+                    case R.id.search:
 
-                            fragment = new OverviewFragment();
-                            break;
+                        fragment = new SearchFragment();
+                        break;
 
-                        case R.id.library:
+                    case R.id.library:
 
-                            fragment = new LibraryFragment();
-                            break;
-                    }
-
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
-
-                    return true;
+                        fragment = new LibraryFragment();
+                        break;
                 }
 
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+
+                return true;
             };
         }
