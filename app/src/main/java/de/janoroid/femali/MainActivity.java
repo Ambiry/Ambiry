@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -17,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-    private ArrayList<Object> links = new ArrayList<>();
+    private ArrayList<Object> links;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,32 +51,36 @@ public class MainActivity extends AppCompatActivity {
 
 
     //get the Links from Firebase und parsed the Podcasts
-    private class laodDataFromDatabase extends AsyncTask<String, Void, String> {
+    private class laodDataFromDatabase extends AsyncTask<String, Void, String> implements de.janoroid.femali.laodDataFromDatabase {
 
         @Override
         protected String doInBackground(String... params) {
             firebaseDatabase = FirebaseDatabase.getInstance("https://femali-default-rtdb.europe-west1.firebasedatabase.app");
             databaseReference = firebaseDatabase.getReference();
 
+
+            // Read from the database
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                public void onDataChange(DataSnapshot dataSnapshot) {
 
-                    if (snapshot.exists()){
+                    links = new ArrayList<>();
+                for (DataSnapshot dsp : dataSnapshot.getChildren()) {
 
-                        links.add(snapshot.getValue());
+                     links.add(String.valueOf(dsp.getValue())); //add links into arraylist
+
 
                     }
+                     Log.d("TAG", "Value is: " + links);
 
                 }
 
                 @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
+                public void onCancelled(DatabaseError error) {
+                    // Failed to read value
+                    Log.w("TAG", "Failed to read value.", error.toException());
                 }
             });
-
-
 
             return null;
         }
@@ -84,7 +89,9 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String result) {
 
             RSSParser rssParser = new RSSParser();
-            rssParser.execute();
+            rssParser.execute(links);
+
+            new RSSParser().execute(links);
 
         }
 

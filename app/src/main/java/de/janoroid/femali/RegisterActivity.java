@@ -25,9 +25,9 @@ public class RegisterActivity extends AppCompatActivity {
     EditText editTextPassword , editTextEmailAdress;
     private String password, email;
     private Userdata userdata;
-    private FirebaseAuth firebaseAuth;
-    private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference databaseReference;
+    FirebaseAuth firebaseAuth;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
     FirebaseAuth mAuth;
 
     @Override
@@ -97,7 +97,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void isUserLoggedin() {
 
         /**
-         if the user is logged in, he will be redirected to the main activity
+         if the user is logged in, he will be redirected to the Homeactivity
          */
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

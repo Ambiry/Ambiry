@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class RSSParser extends AsyncTask<Void,Void,Object> {
+public class RSSParser extends AsyncTask<ArrayList<Object>, Void, Object> {
 
     private String title = null;
     private String links = null;
@@ -29,147 +29,152 @@ public class RSSParser extends AsyncTask<Void,Void,Object> {
 
 
     @Override
-    protected Object doInBackground(Void... rssURLs) {
+    protected Object doInBackground(ArrayList<Object>... linksArrayList) {
 
         try {
 
-            URL rssUrl = new URL("https://rotundlang.podigee.io/feed/mp3");
+            for (ArrayList<Object> ArrayListLinks : linksArrayList) {
 
-            inputStream = rssUrl.openStream();
+                //get the Links of the Arraylist
+                URL rssUrl = new URL(ArrayListLinks.toString());
 
-            XmlPullParser xmlPullParser = Xml.newPullParser();
-            xmlPullParser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
-            xmlPullParser.setInput(inputStream, null);
+                inputStream = rssUrl.openStream();
 
-            xmlPullParser.nextTag();
-            while (xmlPullParser.next() != XmlPullParser.END_DOCUMENT) {
-                int eventType = xmlPullParser.getEventType();
+                XmlPullParser xmlPullParser = Xml.newPullParser();
+                xmlPullParser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+                xmlPullParser.setInput(inputStream, null);
 
-                String name = xmlPullParser.getName();
-                if (name == null)
-                    continue;
+                xmlPullParser.nextTag();
+                while (xmlPullParser.next() != XmlPullParser.END_DOCUMENT) {
+                    int eventType = xmlPullParser.getEventType();
 
-                if (eventType == XmlPullParser.END_TAG) {
-                    if (name.equalsIgnoreCase("item")) {
-                        isItemAvailable = false;
-                    }
-                    continue;
-                }
+                    String name = xmlPullParser.getName();
+                    if (name == null)
+                        continue;
 
-                if (eventType == XmlPullParser.START_TAG) {
-                    if (name.equalsIgnoreCase("item")) {
-                        isItemAvailable = true;
+                    if (eventType == XmlPullParser.END_TAG) {
+                        if (name.equalsIgnoreCase("item")) {
+                            isItemAvailable = false;
+                        }
                         continue;
                     }
-                }
 
-                //The String get the geparst Value
-                String result = "";
-
-                if (xmlPullParser.next() == XmlPullParser.TEXT) {
-                    result = xmlPullParser.getText();
-                    xmlPullParser.nextTag();
-                }
-
-                if (name.equalsIgnoreCase("title")) {
-
-                    Log.d("XmlParser", "Parsing title ==> " + result);
-                    title = result;
-
-                } else if (name.equalsIgnoreCase("link")) {
-
-                    Log.d("XmlParser", "Parsing link ==> " + result);
-                    links = result;
-
-                } else if (name.equalsIgnoreCase("description")) {
-
-                    Log.d("XmlParser", "Parsing description ==> " + result);
-                    description = result;
-
-                } else if (name.equalsIgnoreCase("itunes:duration")) {
-
-                    Log.d("XmlParser", "Parsing duration ==> " + result);
-                    duration = result;
-
-                } else if (name.equalsIgnoreCase("itunes:image")) {
-
-                    int attributeCount = xmlPullParser.getAttributeCount();
-
-                    for(int i = 0; i<attributeCount; i++){
-
-                        String attrib = xmlPullParser.getAttributeName(i);
-
-                    if(attrib.equalsIgnoreCase("href")){
-
-                            result = xmlPullParser.getAttributeValue(i);
-
-                            Log.d("XmlParser", "Parsing imageUrl ==> " + result);
-                            image = result;
+                    if (eventType == XmlPullParser.START_TAG) {
+                        if (name.equalsIgnoreCase("item")) {
+                            isItemAvailable = true;
+                            continue;
                         }
                     }
 
-                } else if (name.equalsIgnoreCase("itunes:keywords")) {
+                    //The String get the geparst Value
+                    String result = "";
 
-
-                    Log.d("XmlParser", "Parsing keywords ==> " + result);
-                    keywords = result;
-
-                } else if (name.equalsIgnoreCase("pubDate")) {
-
-                    Log.d("XmlParser", "Parsing pubDate ==> " + result);
-                    date = result;
-
-                } else if (name.equalsIgnoreCase("enclosure")) {
-
-                    int attributeCount = xmlPullParser.getAttributeCount();
-
-                    for(int i = 0; i<attributeCount; i++){
-                        String attrib = xmlPullParser.getAttributeName(i);
-
-                    if(attrib.equalsIgnoreCase("url")){
-                            result = xmlPullParser.getAttributeValue(i);
-
-                            Log.d("XmlParser", "Parsing audioURL ==> " + result);
-                            audioUrl = result;
-                        }
+                    if (xmlPullParser.next() == XmlPullParser.TEXT) {
+                        result = xmlPullParser.getText();
+                        xmlPullParser.nextTag();
                     }
 
-                } else if (name.equalsIgnoreCase("category")) {
+                    if (name.equalsIgnoreCase("title")) {
 
-                    Log.d("XmlParser", "Parsing category ==> " + result);
-                    category = result;
+                        Log.d("XmlParser", "Parsing title ==> " + result);
+                        title = result;
 
-                } else if (name.equalsIgnoreCase("itunes:summary")) {
+                    } else if (name.equalsIgnoreCase("link")) {
 
-                    Log.d("XmlParser", "Parsing summary ==> " + result);
-                    summary = result;
-                }
+                        Log.d("XmlParser", "Parsing link ==> " + result);
+                        links = result;
+
+                    } else if (name.equalsIgnoreCase("description")) {
+
+                        Log.d("XmlParser", "Parsing description ==> " + result);
+                        description = result;
+
+                    } else if (name.equalsIgnoreCase("itunes:duration")) {
+
+                        Log.d("XmlParser", "Parsing duration ==> " + result);
+                        duration = result;
+
+                    } else if (name.equalsIgnoreCase("itunes:image")) {
+
+                        int attributeCount = xmlPullParser.getAttributeCount();
+
+                        for (int i = 0; i < attributeCount; i++) {
+
+                            String attrib = xmlPullParser.getAttributeName(i);
+
+                            if (attrib.equalsIgnoreCase("href")) {
+
+                                result = xmlPullParser.getAttributeValue(i);
+
+                                Log.d("XmlParser", "Parsing imageUrl ==> " + result);
+                                image = result;
+                            }
+                        }
+
+                    } else if (name.equalsIgnoreCase("itunes:keywords")) {
+
+
+                        Log.d("XmlParser", "Parsing keywords ==> " + result);
+                        keywords = result;
+
+                    } else if (name.equalsIgnoreCase("pubDate")) {
+
+                        Log.d("XmlParser", "Parsing pubDate ==> " + result);
+                        date = result;
+
+                    } else if (name.equalsIgnoreCase("enclosure")) {
+
+                        int attributeCount = xmlPullParser.getAttributeCount();
+
+                        for (int i = 0; i < attributeCount; i++) {
+                            String attrib = xmlPullParser.getAttributeName(i);
+
+                            if (attrib.equalsIgnoreCase("url")) {
+                                result = xmlPullParser.getAttributeValue(i);
+
+                                Log.d("XmlParser", "Parsing audioURL ==> " + result);
+                                audioUrl = result;
+                            }
+                        }
+
+                    } else if (name.equalsIgnoreCase("category")) {
+
+                        Log.d("XmlParser", "Parsing category ==> " + result);
+                        category = result;
+
+                    } else if (name.equalsIgnoreCase("itunes:summary")) {
+
+                        Log.d("XmlParser", "Parsing summary ==> " + result);
+                        summary = result;
+                    }
 
                     if (isItemAvailable) {
                         RSSItems item = new RSSItems(title, description, image, date, duration, audioUrl, keywords, category, summary);
                         items.add(item);
                     }
+                }
 
-                    title = null;
-                    links = null;
-                    description = null;
-                    image = null;
-                    keywords = null;
-                    duration = null;
-                    date = null;
-                    audioUrl = null;
-                    category = null;
-                    summary = null;
-                    isItemAvailable = false;
+                title = null;
+                links = null;
+                description = null;
+                image = null;
+                keywords = null;
+                duration = null;
+                date = null;
+                audioUrl = null;
+                category = null;
+                summary = null;
+                isItemAvailable = false;
             }
 
-        } catch (XmlPullParserException | IOException e) {
-            e.printStackTrace();
+            } catch(XmlPullParserException | IOException e){
+                e.printStackTrace();
+            }
+
+
+            return isItemAvailable;
+
         }
 
-        return isItemAvailable;
-
     }
-
-}
 
