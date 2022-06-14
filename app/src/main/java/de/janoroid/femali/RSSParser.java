@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -24,6 +23,7 @@ public class RSSParser extends AsyncTask<ArrayList<Object>, Void, Object> {
     private String audioUrl = null;
     private String category = null;
     private String summary = null;
+    private String attribute = null;
     private boolean isItemAvailable = false;
     InputStream inputStream;
 
@@ -102,9 +102,9 @@ public class RSSParser extends AsyncTask<ArrayList<Object>, Void, Object> {
 
                         for (int i = 0; i < attributeCount; i++) {
 
-                            String attrib = xmlPullParser.getAttributeName(i);
+                                attribute = xmlPullParser.getAttributeName(i);
 
-                            if (attrib.equalsIgnoreCase("href")) {
+                            if (attribute.equalsIgnoreCase("href")) {
 
                                 result = xmlPullParser.getAttributeValue(i);
 
@@ -129,9 +129,9 @@ public class RSSParser extends AsyncTask<ArrayList<Object>, Void, Object> {
                         int attributeCount = xmlPullParser.getAttributeCount();
 
                         for (int i = 0; i < attributeCount; i++) {
-                            String attrib = xmlPullParser.getAttributeName(i);
+                             attribute = xmlPullParser.getAttributeName(i);
 
-                            if (attrib.equalsIgnoreCase("url")) {
+                            if (attribute.equalsIgnoreCase("url")) {
                                 result = xmlPullParser.getAttributeValue(i);
 
                                 Log.d("XmlParser", "Parsing audioURL ==> " + result);

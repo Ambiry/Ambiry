@@ -27,6 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:elevation="2dp"
+       android:iconifiedByDefault="false"
         android:background="@drawable/searchviewdesign"
         app:layout_constraintEnd_toStartOf="@id/guidelineright"
         app:layout_constraintStart_toEndOf="@id/guidelineleft"

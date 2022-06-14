@@ -7,17 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.SearchView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 
 public class SearchFragment extends Fragment {
     SearchView searchView;
     RecyclerView recyclerViewCategory;
-
-
 
 
     @Override
@@ -31,16 +27,27 @@ public class SearchFragment extends Fragment {
         recyclerViewCategory.setHasFixedSize(true);
         recyclerViewCategory.setLayoutManager(new GridLayoutManager(getActivity(),2));
 
+        // data to populate the RecyclerView with
+        ArrayList<String> category = new ArrayList<>();
+        category.add("Charts");
+        category.add("Wissenschaft");
+        category.add("Liebe und Sex");
+        category.add("Deutsche Podcasts");
+        category.add("Hörspiele");
+        category.add("Hörbücher");
 
 
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(getActivity(), category);
+        recyclerViewCategory.setAdapter(adapter);
 
 
         searchView.setQueryHint(getString(R.string.browse_everything));
 
-        //Applies white color on searchview text
+        //Applies white color on searchview text und title
         int id = searchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
-        TextView textView = (TextView) searchView.findViewById(id);
+        TextView textView = searchView.findViewById(id);
         textView.setTextColor(Color.WHITE);
+        textView.setHintTextColor(Color.WHITE);
 
 
         searchView.setOnClickListener(v -> {

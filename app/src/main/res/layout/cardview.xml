@@ -4,13 +4,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
-    android:layout_width="200dp"
-    android:layout_height="200dp"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
     card_view:cardCornerRadius="5dp"
     card_view:cardMaxElevation="1dp"
     card_view:cardElevation="1dp"
-    card_view:cardBackgroundColor="@color/blue"
+    card_view:cardBackgroundColor="#7DBADD"
     card_view:cardUseCompatPadding="true"
+    android:layout_marginBottom="4dp"
+    android:layout_marginRight="4dp"
     card_view:cardPreventCornerOverlap="false">
 
     <LinearLayout
@@ -19,7 +21,7 @@
         android:orientation="vertical"
         android:id="@+id/card_list">
         <ImageView
-            android:id="@+id/Imageviewthumbnail"
+            android:id="@+id/ImageviewThumbnail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -28,7 +30,7 @@
             android:layout_weight="1" />
 
         <TextView
-            android:id="@+id/textviewPlaylistTitle"
+            android:id="@+id/textviewCategoryName"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:layout_gravity="center"

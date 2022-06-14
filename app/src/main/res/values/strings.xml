@@ -43,7 +43,7 @@
 
     <string name="tablayoutEpisode">Episoden</string>
     <string name="tablayoutAboutThePodcast">Beschreibung</string>
-    <string name="tablayoutsimilarPodcats">Ähnliche Podcasts</string>
+    <string name="tablayoutsimilarPodcats">Empfehlung</string>
 
 
     <string name="home">Home</string>
@@ -56,5 +56,10 @@
     <string name="goodMorning">Guten Morgen,</string>
     <string name="goodEvening">Guten Abend,</string>
     <string name="goodDay">Guten Tag,</string>
+
+    <string name="Account">Account</string>
+    <string name="Feedback">Feedback</string>
+    <string name="sendFeedback">Sende Feedback an uns</string>
+    <string name="Report">Melde uns technische Probleme oder wünsche eine neue Funktion.</string>
 
 </resources>

@@ -67,11 +67,8 @@ public class MainActivity extends AppCompatActivity {
                      links.add(String.valueOf(dsp.getValue())); //add links into arraylist
 
 
-
-
-
                 }
-                     Log.d("TAG", "Value is: " + links);
+                     Log.d("TAG", "Value is: " + links.get(3));
                      onPostExecute(links);
 
                 }
@@ -86,9 +83,9 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
 
-        protected void onPostExecute(ArrayList result) {
+        protected void onPostExecute(ArrayList getArrayListLinks) {
 
-            new RSSParser().execute(result);
+            new RSSParser().execute(getArrayListLinks);
 
         }
 
