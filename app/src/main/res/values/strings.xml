@@ -59,7 +59,7 @@
 
     <string name="Account">Account</string>
     <string name="Feedback">Feedback</string>
-    <string name="sendFeedback">Sende Feedback an uns</string>
-    <string name="Report">Melde uns technische Probleme oder wünsche eine neue Funktion.</string>
+    <string name="sendFeedback">Sende Feedback</string>
+    <string name="Report">Melde uns technische Probleme oder Vorschläge.</string>
 
 </resources>
