@@ -46,9 +46,9 @@
     <string name="tablayoutsimilarPodcats">Empfehlung</string>
 
 
-    <string name="home">Home</string>
-    <string name="search">Search</string>
-    <string name="library">Library</string>
+    <string name="home">Startseite</string>
+    <string name="search">Suche</string>
+    <string name="library">Bibliothek</string>
 
     <string name="popupmenuDownload">Downloaden</string>
     <string name="createPlaylistTextview">Neue Playlist erstellen</string>
@@ -60,6 +60,8 @@
     <string name="Account">Account</string>
     <string name="Feedback">Feedback</string>
     <string name="sendFeedback">Sende Feedback</string>
-    <string name="Report">Melde uns technische Probleme oder Vorschläge.</string>
+    <string name="Report">Melde uns technische Probleme oder Vorschläge für Updates.</string>
+    <string name="privacy">Datenschutzerklärung</string>
+
 
 </resources>
