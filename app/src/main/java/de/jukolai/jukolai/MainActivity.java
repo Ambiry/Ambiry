@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params) {
-            firebaseDatabase = FirebaseDatabase.getInstance("https://femali-default-rtdb.europe-west1.firebasedatabase.app");
+            firebaseDatabase = FirebaseDatabase.getInstance("https://jukolai-default-rtdb.europe-west1.firebasedatabase.app");
             databaseReference = firebaseDatabase.getReference();
 
 
