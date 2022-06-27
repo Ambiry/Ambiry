@@ -1,4 +1,4 @@
-package de.janoroid.femali;
+package de.jukolai.jukolai;
 
 public class Userdata {
     private String FirstName;

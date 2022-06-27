@@ -1,4 +1,4 @@
-package de.janoroid.femali;
+package de.jukolai.jukolai;
 import androidx.appcompat.app.AppCompatActivity;
 import android.media.MediaPlayer;
 import android.os.Bundle;

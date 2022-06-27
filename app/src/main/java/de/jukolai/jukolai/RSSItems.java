@@ -1,4 +1,4 @@
-package de.janoroid.femali;
+package de.jukolai.jukolai;
 
 public class RSSItems {
     private String title;

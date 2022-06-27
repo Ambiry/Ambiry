@@ -1,4 +1,4 @@
-package de.janoroid.femali;
+package de.jukolai.jukolai;
 import android.graphics.Color;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -25,14 +25,18 @@ public class SearchFragment extends Fragment {
         searchView = view.findViewById(R.id.searchView);
         recyclerViewCategory = view.findViewById(R.id.recyclerviewCategory);
         recyclerViewCategory.setHasFixedSize(true);
-        recyclerViewCategory.setLayoutManager(new GridLayoutManager(getActivity(),2));
+        recyclerViewCategory.setLayoutManager(new GridLayoutManager(getActivity(),3));
 
         // data to populate the RecyclerView with
         ArrayList<String> category = new ArrayList<>();
-        category.add("Charts");
+        category.add("Unsere Empfehlung");
+        category.add("Beliebt");
+        category.add("Krimi");
+        category.add("Vegan");
         category.add("Wissenschaft");
         category.add("Liebe und Sex");
         category.add("Deutsche Podcasts");
+        category.add("Internationale Podcasts");
         category.add("Hörspiele");
         category.add("Hörbücher");
 
@@ -47,6 +51,7 @@ public class SearchFragment extends Fragment {
         int id = searchView.getContext().getResources().getIdentifier("android:id/search_src_text", null, null);
         TextView textView = searchView.findViewById(id);
         textView.setTextColor(Color.WHITE);
+        textView.setTextSize(13);
         textView.setHintTextColor(Color.WHITE);
 
 

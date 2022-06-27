@@ -1,4 +1,4 @@
-package de.janoroid.femali;
+package de.jukolai.jukolai;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

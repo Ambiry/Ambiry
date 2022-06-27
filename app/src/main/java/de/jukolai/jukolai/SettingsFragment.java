@@ -1,4 +1,4 @@
-package de.janoroid.femali;
+package de.jukolai.jukolai;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;

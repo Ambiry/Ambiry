@@ -1,4 +1,4 @@
-package de.janoroid.femali;
+package de.jukolai.jukolai;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -7,7 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 public class ViewpagerOverviewAdapter extends FragmentStateAdapter {
 
-    // The Adapter is for the PodcastOverviewFragment
+    // The Adapter is for the OverviewFragment
     public ViewpagerOverviewAdapter(@NonNull FragmentManager fragmentActivity , Lifecycle lifecycle) {
         super(fragmentActivity,lifecycle);
     }

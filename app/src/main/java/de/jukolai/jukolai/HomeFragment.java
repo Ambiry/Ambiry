@@ -1,5 +1,4 @@
-package de.janoroid.femali;
-import android.content.pm.ActivityInfo;
+package de.jukolai.jukolai;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;

@@ -1,4 +1,4 @@
-package de.janoroid.femali;
+package de.jukolai.jukolai;
 import android.app.Dialog;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
