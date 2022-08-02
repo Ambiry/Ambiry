@@ -1,4 +1,4 @@
-package de.jukolai.jukolai;
+package de.jukolai.ambiry;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;

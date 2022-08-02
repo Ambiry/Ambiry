@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">Jukolai</string>
+    <string name="app_name">Ambiry</string>
     <string name="discover_something">Entdecke was Neues</string>
     <string name="for_you">Für dich empfohlene Künstler</string>
-    <string name="what_will_you_hear_today">was wirst du heute hören?</string>
+    <string name="what_will_you_hear_today">was möchtest du heute hören?</string>
     <string name="appSettings">App-Einstellungen</string>
     <string name="playlistforyou">Für dich erstellte Playlisten</string>
     <string name="soundQuality">Tonqualität einstellen</string>
@@ -15,8 +15,8 @@
 
     <string name="browse_everything">Podcasts, Höspiele, Hörbücher oder Künstler*in</string>
 
-    <string name="AGB">Informationen zur Verarbeitung deiner Daten findest du in unserer Datenschutzerklärungen</string>
-    <string name="Terms_of_Use">Es gelten unsere Nutzungsbedingungen</string>
+    <string name="AGB">Informationen zur Verarbeitung deiner Daten findest du in unserer Datenschutzerklärungen.</string>
+    <string name="Terms_of_Use">Es gelten unsere Nutzungsbedingungen.</string>
 
     <string name="logout">Abmelden</string>
 

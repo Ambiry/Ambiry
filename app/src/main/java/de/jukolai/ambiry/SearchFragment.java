@@ -1,4 +1,4 @@
-package de.jukolai.jukolai;
+package de.jukolai.ambiry;
 import android.graphics.Color;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;

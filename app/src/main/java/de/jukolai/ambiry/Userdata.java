@@ -1,4 +1,4 @@
-package de.jukolai.jukolai;
+package de.jukolai.ambiry;
 
 public class Userdata {
     private String FirstName;

@@ -1,4 +1,4 @@
-package de.jukolai.jukolai;
+package de.jukolai.ambiry;
 
 import org.junit.Test;
 

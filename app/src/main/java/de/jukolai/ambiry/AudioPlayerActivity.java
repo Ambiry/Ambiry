@@ -1,4 +1,4 @@
-package de.jukolai.jukolai;
+package de.jukolai.ambiry;
 import androidx.appcompat.app.AppCompatActivity;
 import android.media.MediaPlayer;
 import android.os.Bundle;

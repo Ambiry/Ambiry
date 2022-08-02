@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:899090665620:android:e8dfa4ca60d7fa05d7e481",
         "android_client_info": {
-          "package_name": "de.jukolai.jukolai"
+          "package_name": "de.jukolai.ambiry"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "899090665620-k80njkthgs741kuaeeinehbirtq269rg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "de.jukolai.jukolai",
+            "package_name": "de.jukolai.ambiry",
             "certificate_hash": "53c43f4be70f231d46fa8d659f5310f2c84ec358"
           }
         },

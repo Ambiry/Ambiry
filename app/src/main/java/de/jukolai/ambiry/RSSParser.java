@@ -1,4 +1,4 @@
-package de.jukolai.jukolai;
+package de.jukolai.ambiry;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.util.Xml;

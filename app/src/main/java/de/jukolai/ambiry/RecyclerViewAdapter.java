@@ -1,4 +1,4 @@
-package de.jukolai.jukolai;
+package de.jukolai.ambiry;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
