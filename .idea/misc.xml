@@ -21,6 +21,7 @@
         <entry key="app/src/main/res/layout/cardview.xml" value="0.33" />
         <entry key="app/src/main/res/layout/cardview_audioplayer.xml" value="0.348747591522158" />
         <entry key="app/src/main/res/layout/cardview_player.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/child_rv_layout.xml" value="0.340625" />
         <entry key="app/src/main/res/layout/createplaylistalertdialog.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/createplaylistdialog.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_about_the_podcast.xml" value="0.33" />
@@ -35,7 +36,7 @@
         <entry key="app/src/main/res/layout/fragment_podcast_overview.xml" value="0.2795031055900621" />
         <entry key="app/src/main/res/layout/fragment_recommandation.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.20496894409937888" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.24351851851851852" />
         <entry key="app/src/main/res/layout/fragment_similar_podcasts.xml" value="0.23425925925925925" />
@@ -44,6 +45,7 @@
         <entry key="app/src/main/res/layout/librarycardview.xml" value="0.33" />
         <entry key="app/src/main/res/layout/listviewtextcolor.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/listviewwhitetext.xml" value="0.3416666666666667" />
+        <entry key="app/src/main/res/layout/parent_rv_layout.xml" value="0.340625" />
         <entry key="app/src/main/res/layout/popup.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/preference.xml" value="0.340625" />
         <entry key="app/src/main/res/layout/preference_layout.xml" value="0.340625" />
@@ -53,6 +55,7 @@
         <entry key="app/src/main/res/layout/searchview.xml" value="0.23703703703703705" />
         <entry key="app/src/main/res/layout/searchviewdesign.xml" value="0.3101851851851852" />
         <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/cardviewitems.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/menu/carviewitems.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/menu/popupmenucardview.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/menu/preference.xml" value="0.340625" />

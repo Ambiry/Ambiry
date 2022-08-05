@@ -21,6 +21,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="20dp" />
 
+
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="0dp"

@@ -71,7 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                     if (!email.contains("@")) {
 
-                        Toast.makeText(RegisterActivity.this, "Geben sie eine echte E-Mail-Adresse ein!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(RegisterActivity.this, "Geben sie eine richtige E-Mail-Adresse ein!", Toast.LENGTH_LONG).show();
                         return;
 
                     }

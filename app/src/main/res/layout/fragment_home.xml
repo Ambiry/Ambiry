@@ -73,20 +73,10 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-            <TextView
-                android:id="@+id/textviewFirstStart"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:textColor="#ffffff"
-                android:textSize="18sp"
-                android:layout_marginTop="160dp"
-                app:layout_constraintEnd_toStartOf="@id/guidelineright"
-                app:layout_constraintStart_toEndOf="@id/guidelineleft"
-                app:layout_constraintTop_toTopOf="parent">
-            </TextView>
 
 
-            <HorizontalScrollView
+
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/horizontalScrollViewSub"
                 android:layout_width="0dp"
                 android:layout_height="150dp"
@@ -95,101 +85,10 @@
                 app:layout_constraintStart_toEndOf="@id/guidelineleft"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical" />
 
-            </HorizontalScrollView>
+            </androidx.recyclerview.widget.RecyclerView>
 
 
-
-            <TextView
-                android:id="@+id/textviewRecommend"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="300dp"
-                android:text="@string/discover_something"
-                android:textColor="#ffffff"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/guidelineright"
-                app:layout_constraintStart_toEndOf="@id/guidelineleft"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <HorizontalScrollView
-                android:id="@+id/horizontalScrollViewRecommend"
-                android:layout_width="0dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="350dp"
-                app:layout_constraintEnd_toStartOf="@id/guidelineright"
-                app:layout_constraintStart_toEndOf="@id/guidelineleft"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical" />
-            </HorizontalScrollView>
-
-            <TextView
-                android:id="@+id/textViewForYou"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="520dp"
-                android:text="@string/for_you"
-                android:textColor="#ffffff"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/guidelineright"
-                app:layout_constraintStart_toEndOf="@id/guidelineleft"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-            <HorizontalScrollView
-                android:id="@+id/horizontalScrollViewForYou"
-                android:layout_width="0dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="570dp"
-                app:layout_constraintEnd_toStartOf="@id/guidelineright"
-                app:layout_constraintStart_toEndOf="@id/guidelineleft"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical" />
-            </HorizontalScrollView>
-
-
-            <TextView
-                android:id="@+id/textViewPlaylist"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="740dp"
-                android:text="@string/playlistforyou"
-                android:textColor="#ffffff"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/guidelineright"
-                app:layout_constraintStart_toEndOf="@id/guidelineleft"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-            <HorizontalScrollView
-                android:id="@+id/horizontalScrollViewPlaylist"
-                android:layout_width="0dp"
-                android:layout_height="160dp"
-                android:layout_marginTop="790dp"
-                app:layout_constraintEnd_toStartOf="@id/guidelineright"
-                app:layout_constraintStart_toEndOf="@id/guidelineleft"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical" />
-            </HorizontalScrollView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

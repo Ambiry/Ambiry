@@ -24,9 +24,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         textviewGreeting = view.findViewById(R.id.textViewWelcome);
         imageButtonSettings = view.findViewById(R.id.imageButtonSettings);
-        textViewFirstStart = view.findViewById(R.id.textviewFirstStart);
 
-        textViewFirstStart.setText("Es ist so leise hier....\n \nEntdecke alle Künstler*innen auf dieser Plattform \uD83D\uDE00");
 
 
 
@@ -59,7 +57,7 @@ public class HomeFragment extends Fragment {
 
             textviewGreeting.setText(R.string.goodDay);
 
-        }else if (currentHour > 18){
+        }else if (currentHour > 18 & currentHour < 12){
 
             textviewGreeting.setText(R.string.goodEvening);
         }
