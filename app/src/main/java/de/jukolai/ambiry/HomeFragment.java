@@ -3,17 +3,22 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import java.util.ArrayList;
 import java.util.Calendar;
+
 public class HomeFragment extends Fragment {
 
     TextView textviewGreeting;
     ImageButton imageButtonSettings;
-    TextView textViewFirstStart;
+    RecyclerView recyclerView;
+
 
 
     @Override
@@ -24,8 +29,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         textviewGreeting = view.findViewById(R.id.textViewWelcome);
         imageButtonSettings = view.findViewById(R.id.imageButtonSettings);
-
-
+        recyclerView = view.findViewById(R.id.parentRecyclerview);
 
 
         imageButtonSettings.setOnClickListener(v -> {
@@ -37,12 +41,26 @@ public class HomeFragment extends Fragment {
 
         });
 
+
+
         setWelcomeText();
+
+
+        ArrayList<ChildModel> arrayList = new ArrayList<>();
+
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        ChildRecyclerViewAdapter childRecyclerViewAdapter = new ChildRecyclerViewAdapter(arrayList, getContext());
+        recyclerView.setAdapter(childRecyclerViewAdapter);
+
+
 
 
 
         return view;
     }
+
+
 
     private void setWelcomeText(){
 
@@ -57,7 +75,7 @@ public class HomeFragment extends Fragment {
 
             textviewGreeting.setText(R.string.goodDay);
 
-        }else if (currentHour > 18 & currentHour < 12){
+        }else if (currentHour > 18){
 
             textviewGreeting.setText(R.string.goodEvening);
         }

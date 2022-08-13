@@ -4,6 +4,7 @@
     <string name="for_you">Für dich empfohlene Künstler</string>
     <string name="what_will_you_hear_today">was möchtest du gerne hören?</string>
     <string name="appSettings">App-Einstellungen</string>
+    <string name="Profile">Profil</string>
     <string name="playlistforyou">Für dich erstellte Playlisten</string>
     <string name="soundQuality">Tonqualität einstellen</string>
 
@@ -50,7 +51,7 @@
     <string name="search">Suche</string>
     <string name="library">Bibliothek</string>
 
-    <string name="popupmenuDownload">Downloaden</string>
+    <string name="popupmenuDownload">herunterladen</string>
     <string name="createPlaylistTextview">Neue Playlist erstellen</string>
     <string name="createPlaylistButton">Playlist erstellen</string>
     <string name="goodMorning">Guten Morgen,</string>

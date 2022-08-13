@@ -23,27 +23,6 @@ public class SearchFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
 
         searchView = view.findViewById(R.id.searchView);
-        recyclerViewCategory = view.findViewById(R.id.recyclerviewCategory);
-        recyclerViewCategory.setHasFixedSize(true);
-        recyclerViewCategory.setLayoutManager(new GridLayoutManager(getActivity(),3));
-
-        // data to populate the RecyclerView with
-        ArrayList<String> category = new ArrayList<>();
-        category.add("Unsere Empfehlung");
-        category.add("Beliebt");
-        category.add("Krimi");
-        category.add("Vegan");
-        category.add("Wissenschaft");
-        category.add("Liebe und Sex");
-        category.add("Deutsche Podcasts");
-        category.add("Internationale Podcasts");
-        category.add("Hörspiele");
-        category.add("Hörbücher");
-
-
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(getActivity(), category);
-        recyclerViewCategory.setAdapter(adapter);
-
 
         searchView.setQueryHint(getString(R.string.browse_everything));
 

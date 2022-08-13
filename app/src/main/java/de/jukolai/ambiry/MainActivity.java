@@ -1,6 +1,7 @@
 package de.jukolai.ambiry;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,7 +41,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
 
-        new laodDataFromDatabase().execute();
+        Intent i = new Intent(this, AudioPlayerActivity.class);
+        startActivity(i);
+
+        new getDataFromDatabase().execute();
 
         super.onStart();
 
@@ -48,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     //get the Links from Firebase
-    private class laodDataFromDatabase extends AsyncTask<String, Void, String> {
+    private class getDataFromDatabase extends AsyncTask<String, Void, String> {
 
         @Override
         protected String doInBackground(String... params) {
@@ -64,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     links = new ArrayList<>();
                 for (DataSnapshot dsp : dataSnapshot.getChildren()) {
 
-                     links.add(String.valueOf(dsp.getValue())); //add links into arraylist
+                     links.add(String.valueOf(dsp.getValue())); //add links into the arraylist
 
 
                 }
@@ -85,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
         protected void onPostExecute(ArrayList getArrayListLinks) {
 
-            new RSSParser().execute(getArrayListLinks);
+            new Parser().execute(getArrayListLinks);
 
         }
 

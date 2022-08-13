@@ -34,8 +34,7 @@
             android:textStyle="bold"
             android:textColor="#ffffff"
             android:layout_marginTop="5dp"
-            android:layout_marginStart="10dp"
-            android:text="Odesza - Der Podcast Tour durch Deutschland" />
+            android:layout_marginStart="10dp" />
 
         <View
             android:layout_width="0dp"
@@ -54,7 +53,6 @@
             android:id="@+id/textviewDuration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="100.000 Zuhörer*innen monatlich"
             android:textColor="#ffffff"
             android:textSize="11sp">
         </TextView>

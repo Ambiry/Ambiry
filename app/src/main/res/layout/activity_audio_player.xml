@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,147 +8,242 @@
     tools:context=".AudioPlayerActivity">
 
 
-    <ImageButton
-        android:id="@+id/arrowButton"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/arrowdownicon">
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineleft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 
-    </ImageButton>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
 
 
-    <ImageButton
-        android:id="@+id/castbutton"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/casticon">
+    <RelativeLayout
+        android:id="@+id/relativelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@id/guidelineright"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@id/guidelineleft"
+        app:layout_constraintTop_toTopOf="parent">
 
-    </ImageButton>
+        <ImageButton
+            android:id="@+id/arrowButton"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/arrowdownicon">
+
+        </ImageButton>
+
+
+        <ImageButton
+            android:id="@+id/castbutton"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/casticon">
+
+        </ImageButton>
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textviewArtist"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:text="QUARKS SCIENCE COPS"
+        android:textAlignment="textStart"
+        android:textColor="#ffffff"
+        android:textSize="12sp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintEnd_toStartOf="@id/guidelineright"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/guidelineleft"
+        app:layout_constraintTop_toTopOf="@id/textviewTitle" />
+
 
     <ImageView
-        android:id="@+id/podcastImageview"
-        android:layout_width="300dp"
+        android:id="@+id/Imageview_cv"
+        android:layout_width="0dp"
         android:layout_height="300dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:src="@drawable/podcasticon"
-        android:background="@drawable/imageview_border">
+        android:layout_marginTop="80dp"
+        android:background="@drawable/imageview_border"
+        android:scaleType="fitXY"
+        android:src="@drawable/download"
+        app:layout_constraintEnd_toStartOf="@id/guidelineright"
+        app:layout_constraintStart_toEndOf="@id/guidelineleft"
+        app:layout_constraintTop_toTopOf="parent">
 
     </ImageView>
 
     <TextView
-        android:id="@+id/textviewAudioName"
-        android:layout_width="match_parent"
+        android:id="@+id/textviewTitle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="380dp"
-        android:text="Odesza"
-        android:layout_marginStart="50dp"
-        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:text="Die Akte Bachblüten:
+Ein Blumenstrauß voll Blödsinn"
         android:textAlignment="textStart"
         android:textColor="#ffffff"
-        android:textSize="20sp">
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp"
+        app:layout_constraintEnd_toStartOf="@id/guidelineright"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/guidelineleft"
+        app:layout_constraintTop_toBottomOf="@id/Imageview_cv" />
 
-    </TextView>
 
 
-    <TextView
-        android:id="@+id/textviewTitle"
-        android:layout_width="match_parent"
+
+    <RelativeLayout
+        android:id="@+id/linearlayoutSeekbar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="50dp"
-        android:layout_below="@id/textviewAudioName"
-        android:text="Der heutige Gast ist Juljano"
-        android:textAlignment="viewStart"
-        android:textColor="#ffffff"
-        android:textSize="18sp">
-
-    </TextView>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="580dp"
-        android:padding="8dp">
-
-        <TextView
-            android:id="@+id/textviewcurrentime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="00:00"
-            android:textColor="#ffffff"
-            android:textStyle="bold">
-        </TextView>
+        android:layout_marginTop="100dp"
+        android:gravity="center_horizontal"
+        app:layout_constraintEnd_toStartOf="@id/guidelineright"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/guidelineleft"
+        app:layout_constraintTop_toBottomOf="@id/Imageview_cv">
 
         <SeekBar
             android:id="@+id/seekbar"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="@color/white" />
 
-        </SeekBar>
 
         <TextView
             android:id="@+id/textviewremainingtime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="25dp"
             android:text="00:00"
             android:textColor="#ffffff"
             android:textStyle="bold">
 
         </TextView>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="450dp"
-        android:gravity="center"
+        <TextView
+            android:id="@+id/textviewcurrentime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="25dp"
+            android:text="00:00"
+            android:textColor="#ffffff"
+            android:textStyle="bold">
 
-        android:padding="5dp">
+        </TextView>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toStartOf="@id/guidelineright"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/guidelineleft"
+        app:layout_constraintTop_toBottomOf="@id/linearlayoutSeekbar">
+
 
         <ImageButton
             android:id="@+id/skippreviousbutton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="30dp"
             android:background="@drawable/skippreviousbutton">
+        </ImageButton>
+
+
+        <ImageButton
+            android:id="@+id/rewindButton"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="90dp"
+            android:background="@drawable/replay_30_icon">
 
         </ImageButton>
 
 
         <ImageButton
             android:id="@+id/playbutton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:layout_margin="60dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
             android:background="@drawable/playicon">
 
         </ImageButton>
 
         <ImageButton
+            android:id="@+id/forwardButton"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="90dp"
+            android:background="@drawable/forward_30_icon">
+
+        </ImageButton>
+
+
+        <ImageButton
             android:id="@+id/skipnextbutton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="30dp"
             android:background="@drawable/skipnextbutton">
 
         </ImageButton>
-    </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/white"
+        app:layout_constraintEnd_toStartOf="@id/guidelineright"
+        app:layout_constraintStart_toEndOf="@id/guidelineleft"
+        app:layout_constraintTop_toTopOf="@id/linearLayoutMenu" />
 
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/linearLayoutMenu"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guidelineright"
+        app:layout_constraintStart_toEndOf="@id/guidelineleft">
 
 
         <View
@@ -157,23 +252,9 @@
             android:layout_weight="0.5" />
 
         <ImageButton
-            android:id="@+id/descriptionButton"
-            android:layout_width="30dp"
-            android:layout_marginStart="5dp"
-            android:layout_height="30dp"
-            android:background="@drawable/descriptionicon">
-
-        </ImageButton>
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1" />
-
-        <ImageButton
             android:id="@+id/thumbupButton"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:background="@drawable/thumbupicon">
 
         </ImageButton>
@@ -184,10 +265,23 @@
             android:layout_weight="1" />
 
         <ImageButton
-            android:id="@+id/commentButon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:id="@+id/commentsButton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:background="@drawable/commenticon">
+
+        </ImageButton>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/shareButton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/share_icon">
 
         </ImageButton>
 
@@ -199,8 +293,8 @@
 
         <ImageButton
             android:id="@+id/playlistadButton"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:background="@drawable/playlistaddicon">
 
         </ImageButton>
@@ -213,5 +307,4 @@
     </LinearLayout>
 
 
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

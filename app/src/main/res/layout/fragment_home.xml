@@ -7,7 +7,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment">
 
-
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
@@ -35,59 +34,59 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_end="20dp" />
 
-            <ImageButton
-                android:id="@+id/imageButtonSettings"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="5dp"
-                app:civ_border_color="#1D2C3B"
-                app:civ_border_width="2dp"
-                android:background="@drawable/settingicon"
-                app:layout_constraintEnd_toStartOf="@id/guidelineright"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@id/guidelineleft"
-                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textViewWelcome"
+            <RelativeLayout
+                android:id="@+id/relativelayout"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:textColor="#ffffff"
-                android:textSize="26sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/guidelineright"
-                app:layout_constraintStart_toEndOf="@id/guidelineleft"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="75dp"
-                android:text="@string/what_will_you_hear_today"
-                android:textColor="#ffffff"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/guidelineright"
-                app:layout_constraintStart_toEndOf="@id/guidelineleft"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/horizontalScrollViewSub"
-                android:layout_width="0dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="130dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toStartOf="@id/guidelineright"
                 app:layout_constraintStart_toEndOf="@id/guidelineleft"
                 app:layout_constraintTop_toTopOf="parent">
 
+                <TextView
+                    android:id="@+id/textViewWelcome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:textColor="#ffffff"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewWelcome"
+                    android:text="@string/what_will_you_hear_today"
+                    android:textColor="#ffffff"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+
+                <ImageButton
+                    android:id="@+id/imageButtonSettings"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/settingicon"
+                    app:civ_border_color="#1D2C3B"
+                    app:civ_border_width="2dp" />
+
+
+            </RelativeLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/parentRecyclerview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                app:layout_constraintEnd_toStartOf="@id/guidelineright"
+                app:layout_constraintStart_toEndOf="@id/guidelineleft"
+                app:layout_constraintTop_toTopOf="@+id/relativelayout">
 
             </androidx.recyclerview.widget.RecyclerView>
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

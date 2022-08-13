@@ -8,13 +8,17 @@ import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class AudioPlayerActivity extends AppCompatActivity {
 
-    ImageButton playButton,skippreviousButton,skipnextButton,descriptionButton,thumbupButton,commentButton,playlistaddButton,castButton,arrowDownButton;
+    ImageButton playButton,skippreviousButton,skipnextButton,descriptionButton,thumbupButton,commentsButton,playlistaddButton,castButton,arrowDownButton,forwardButton,rewindButtom;
     TextView textViewTitle,textViewremainingTime,textViewcurrentTime, textViewAudioName;
     SeekBar seekBarDuration;
     MediaPlayer mediaPlayer;
+
+    private int seekForwardTime = 30 * 1000; // default 30 second
+    private int seekBackwardTime = 30 * 1000; // default 30 second
 
 
     @Override
@@ -25,17 +29,19 @@ public class AudioPlayerActivity extends AppCompatActivity {
         playButton = findViewById(R.id.playbutton);
         skipnextButton = findViewById(R.id.skipnextbutton);
         skippreviousButton = findViewById(R.id.skippreviousbutton);
-        descriptionButton = findViewById(R.id.descriptionButton);
+        descriptionButton = findViewById(R.id.shareButton);
         thumbupButton = findViewById(R.id.thumbupButton);
-        commentButton = findViewById(R.id.commentButon);
+        commentsButton = findViewById(R.id.commentsButton);
         playlistaddButton = findViewById(R.id.playlistadButton);
         castButton = findViewById(R.id.castbutton);
         textViewTitle = findViewById(R.id.textviewTitle);
-        textViewAudioName = findViewById(R.id.textviewAudioName);
+        textViewAudioName = findViewById(R.id.textviewArtist);
         textViewremainingTime = findViewById(R.id.textviewremainingtime);
         textViewcurrentTime = findViewById(R.id.textviewcurrentime);
         seekBarDuration = findViewById(R.id.seekbar);
         arrowDownButton = findViewById(R.id.arrowButton);
+        forwardButton = findViewById(R.id.forwardButton);
+        rewindButtom = findViewById(R.id.rewindButton);
 
 
         mediaPlayer = new MediaPlayer();
@@ -73,6 +79,24 @@ public class AudioPlayerActivity extends AppCompatActivity {
                 skipNext();
             }
         });
+
+        forwardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                setForward();
+
+            }
+        });
+
+        rewindButtom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setRewind();
+            }
+        });
+
+
 
 
         seekBarDuration.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -127,6 +151,32 @@ public class AudioPlayerActivity extends AppCompatActivity {
 
     }
 
+    private void setForward() {
+
+        if (mediaPlayer != null) {
+            int currentPosition = mediaPlayer.getCurrentPosition();
+            if (currentPosition + seekForwardTime <= mediaPlayer.getDuration()) {
+                mediaPlayer.seekTo(currentPosition + seekForwardTime);
+            } else {
+                mediaPlayer.seekTo(mediaPlayer.getDuration());
+            }
+        }
+    }
+
+    private void setRewind(){
+
+        if (mediaPlayer != null) {
+            int currentPosition = mediaPlayer.getCurrentPosition();
+            if (currentPosition - seekBackwardTime >= 0) {
+                mediaPlayer.seekTo(currentPosition - seekBackwardTime);
+            } else {
+                mediaPlayer.seekTo(0);
+            }
+        }
+
+
+    }
+
 
 
     //updated every 50 millisecons the seekBar
@@ -155,20 +205,16 @@ public class AudioPlayerActivity extends AppCompatActivity {
 
 
     // convert from millisecond to hours,minutes and seconds
-    private String getTimeString(long millis) {
+
+    public static String getTimeString(long duration){
+
         StringBuffer buf = new StringBuffer();
 
-        int hours = (int) (millis / (1000 * 60 * 60));
-        int minutes = (int) ((millis % (1000 * 60 * 60)) / (1000 * 60));
-        int seconds = (int) (((millis % (1000 * 60 * 60)) % (1000 * 60)) / 1000);
+        return String.format("%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(duration) % TimeUnit.HOURS.toMinutes(1),
+            TimeUnit.MILLISECONDS.toSeconds(duration) % TimeUnit.MINUTES.toSeconds(1));
 
-        buf
-                .append(String.format("%02d", hours))
-                .append(":")
-                .append(String.format("%02d", minutes))
-                .append(":")
-                .append(String.format("%02d", seconds));
 
-        return buf.toString();
+
+
     }
 }

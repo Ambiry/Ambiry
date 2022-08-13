@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class RSSParser extends AsyncTask<ArrayList<Object>, Void, Object> {
+public class Parser extends AsyncTask<ArrayList<Object>, Void, Object> {
 
     private String title = null;
     private String links = null;
@@ -152,9 +152,14 @@ public class RSSParser extends AsyncTask<ArrayList<Object>, Void, Object> {
 
                     //get the Information of RSS-Feed
                     if (isItemAvailable) {
-                        RSSItems rssItems = new RSSItems(title, description, image, date, duration, audioUrl, keywords, category, summary);
-                        List<RSSItems> items = new ArrayList<>();
-                        items.add(rssItems);
+                        ChildModel childModel = new ChildModel(title,description,image,date,duration,audioUrl,keywords,summary);
+                        List<ChildModel> childModelList = new ArrayList<>();
+                        childModelList.add(childModel);
+
+                        //get the category
+                        ParentModel parentModel = new ParentModel(category);
+                        List<ParentModel> parentModelList = new ArrayList<>();
+                        parentModelList.add(parentModel);
                     }
                 }
 
