@@ -1,9 +1,12 @@
 package de.jukolai.ambiry;
+
 import android.os.AsyncTask;
 import android.util.Log;
 import android.util.Xml;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -102,7 +105,7 @@ public class Parser extends AsyncTask<ArrayList<Object>, Void, Object> {
 
                         for (int i = 0; i < attributeCount; i++) {
 
-                                attribute = xmlPullParser.getAttributeName(i);
+                            attribute = xmlPullParser.getAttributeName(i);
 
                             if (attribute.equalsIgnoreCase("href")) {
 
@@ -129,7 +132,7 @@ public class Parser extends AsyncTask<ArrayList<Object>, Void, Object> {
                         int attributeCount = xmlPullParser.getAttributeCount();
 
                         for (int i = 0; i < attributeCount; i++) {
-                             attribute = xmlPullParser.getAttributeName(i);
+                            attribute = xmlPullParser.getAttributeName(i);
 
                             if (attribute.equalsIgnoreCase("url")) {
                                 result = xmlPullParser.getAttributeValue(i);
@@ -152,7 +155,8 @@ public class Parser extends AsyncTask<ArrayList<Object>, Void, Object> {
 
                     //get the Information of RSS-Feed
                     if (isItemAvailable) {
-                        ChildModel childModel = new ChildModel(title,description,image,date,duration,audioUrl,keywords,summary);
+
+                        ChildModel childModel = new ChildModel(title, description, image, date, duration, audioUrl, keywords, summary);
                         List<ChildModel> childModelList = new ArrayList<>();
                         childModelList.add(childModel);
 
@@ -176,14 +180,14 @@ public class Parser extends AsyncTask<ArrayList<Object>, Void, Object> {
                 isItemAvailable = false;
             }
 
-            } catch(XmlPullParserException | IOException e){
-                e.printStackTrace();
-            }
-
-
-            return isItemAvailable;
-
+        } catch (XmlPullParserException | IOException e) {
+            e.printStackTrace();
         }
 
+
+        return isItemAvailable;
+
     }
+
+}
 

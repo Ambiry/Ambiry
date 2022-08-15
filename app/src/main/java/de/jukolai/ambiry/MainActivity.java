@@ -1,15 +1,19 @@
 package de.jukolai.ambiry;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,12 +33,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         // if savedinstacestate is null, then show the HomeFragment
-        if (savedInstanceState == null){
+        if (savedInstanceState == null) {
 
             getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
         }
 
-        }
+    }
 
 
     @Override
@@ -62,14 +66,14 @@ public class MainActivity extends AppCompatActivity {
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
                     links = new ArrayList<>();
-                for (DataSnapshot dsp : dataSnapshot.getChildren()) {
+                    for (DataSnapshot dsp : dataSnapshot.getChildren()) {
 
-                     links.add(String.valueOf(dsp.getValue())); //add links into the arraylist
+                        links.add(String.valueOf(dsp.getValue())); //add links into the arraylist
 
 
-                }
-                     Log.d("TAG", "Value is: " + links.get(3));
-                     onPostExecute(links);
+                    }
+                    Log.d("TAG", "Value is: " + links.get(3));
+                    onPostExecute(links);
 
                 }
 
@@ -90,39 +94,39 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPreExecute() {}
+        protected void onPreExecute() {
+        }
 
         @Override
-        protected void onProgressUpdate(Void... values) {}
+        protected void onProgressUpdate(Void... values) {
+        }
     }
-
-
 
 
     // BottomNavigationMenu
     private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener = item -> {
-               Fragment fragment = null;
+        Fragment fragment = null;
 
-                switch (item.getItemId()) {
+        switch (item.getItemId()) {
 
-                    case R.id.home:
+            case R.id.home:
 
-                        fragment = new HomeFragment();
-                        break;
+                fragment = new HomeFragment();
+                break;
 
-                    case R.id.search:
+            case R.id.search:
 
-                        fragment = new SearchFragment();
-                        break;
+                fragment = new SearchFragment();
+                break;
 
-                    case R.id.library:
+            case R.id.library:
 
-                        fragment = new LibraryFragment();
-                        break;
-                }
-
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
-
-                return true;
-            };
+                fragment = new LibraryFragment();
+                break;
         }
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+
+        return true;
+    };
+}

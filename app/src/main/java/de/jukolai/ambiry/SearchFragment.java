@@ -1,14 +1,18 @@
 package de.jukolai.ambiry;
+
 import android.graphics.Color;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 
 public class SearchFragment extends Fragment {
@@ -39,7 +43,6 @@ public class SearchFragment extends Fragment {
             //enable the user to click anywhere on the SearchView
             searchView.setIconified(false);
         });
-
 
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

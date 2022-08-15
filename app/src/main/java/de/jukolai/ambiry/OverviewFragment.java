@@ -1,12 +1,16 @@
 package de.jukolai.ambiry;
+
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+
 import com.google.android.material.tabs.TabLayout;
 
 
@@ -15,9 +19,7 @@ public class OverviewFragment extends Fragment {
     TabLayout tabLayout;
     ViewPager2 viewPager;
     ViewpagerOverviewAdapter viewpageAdapter;
-    ImageButton imageButtonBackButton,imageButtonNotification;
-
-
+    ImageButton imageButtonBackButton, imageButtonNotification;
 
 
     @Override
@@ -30,7 +32,7 @@ public class OverviewFragment extends Fragment {
         viewPager = view.findViewById(R.id.viewpager);
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        viewpageAdapter = new ViewpagerOverviewAdapter(fragmentManager,getLifecycle());
+        viewpageAdapter = new ViewpagerOverviewAdapter(fragmentManager, getLifecycle());
         viewPager.setAdapter(viewpageAdapter);
 
         // The Tabs get a Namen

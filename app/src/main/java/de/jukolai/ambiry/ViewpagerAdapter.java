@@ -1,4 +1,5 @@
 package de.jukolai.ambiry;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -8,9 +9,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 public class ViewpagerAdapter extends FragmentStateAdapter {
 
 
-
-    public ViewpagerAdapter(@NonNull FragmentManager fragmentActivity , Lifecycle lifecycle) {
-        super(fragmentActivity,lifecycle);
+    public ViewpagerAdapter(@NonNull FragmentManager fragmentActivity, Lifecycle lifecycle) {
+        super(fragmentActivity, lifecycle);
     }
 
 
@@ -18,10 +18,10 @@ public class ViewpagerAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
 
-      if (position== 1){
-          return new SubscriptionFragment();
-      }
-          return new PlaylistFragment();
+        if (position == 1) {
+            return new SubscriptionFragment();
+        }
+        return new PlaylistFragment();
 
     }
 

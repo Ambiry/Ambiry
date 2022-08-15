@@ -1,9 +1,11 @@
 package de.jukolai.ambiry;
 
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +19,6 @@ public class LibraryFragment extends Fragment {
     ViewpagerAdapter viewpageAdapter;
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -28,13 +29,12 @@ public class LibraryFragment extends Fragment {
         viewPager = view.findViewById(R.id.viewpager);
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        viewpageAdapter = new ViewpagerAdapter(fragmentManager,getLifecycle());
+        viewpageAdapter = new ViewpagerAdapter(fragmentManager, getLifecycle());
         viewPager.setAdapter(viewpageAdapter);
 
         // The Tabs get a Namen
         tabLayout.addTab(tabLayout.newTab().setText(R.string.TablayoutPlaylist));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.TabLayoutSubscription));
-
 
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -61,7 +61,6 @@ public class LibraryFragment extends Fragment {
                 tabLayout.selectTab(tabLayout.getTabAt(position));
             }
         });
-
 
 
         return view;

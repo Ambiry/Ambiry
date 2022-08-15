@@ -1,9 +1,12 @@
 package de.jukolai.ambiry;
+
 import android.app.Dialog;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +19,6 @@ public class PlaylistFragment extends Fragment {
 
     ImageButton createPlaylistImageButton;
     RecyclerView recyclerView;
-
-
 
 
     @Override
@@ -35,8 +36,6 @@ public class PlaylistFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
-
-
         createPlaylistImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,13 +45,12 @@ public class PlaylistFragment extends Fragment {
         });
 
 
-
         return view;
     }
 
-    private void createPlaylist(){
+    private void createPlaylist() {
 
-        View view = getLayoutInflater().inflate(R.layout.createplaylistdialog,null);
+        View view = getLayoutInflater().inflate(R.layout.createplaylistdialog, null);
 
         // Fullscreen
         Dialog dialog = new Dialog(getActivity(), android.R.style.Theme_DeviceDefault_Light_NoActionBar_Fullscreen);
@@ -83,10 +81,6 @@ public class PlaylistFragment extends Fragment {
 
             }
         });
-
-
-
-
 
 
     }

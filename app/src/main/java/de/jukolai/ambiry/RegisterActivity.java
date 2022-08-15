@@ -1,6 +1,8 @@
 package de.jukolai.ambiry;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -9,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -21,7 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     Button registerButton;
     TextView textviewExistingAccount;
-    EditText editTextPassword , editTextEmailAdress;
+    EditText editTextPassword, editTextEmailAdress;
     private String password, email;
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
@@ -43,8 +46,8 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
-               startActivity(intent);
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -57,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
                 password = editTextPassword.getText().toString();
 
                 // if a edittext is empty or the password is too short, then get the user a warnung
-                if (!TextUtils.isEmpty(editTextEmailAdress.getText())  || !TextUtils.isEmpty(editTextPassword.getText())) {
+                if (!TextUtils.isEmpty(editTextEmailAdress.getText()) || !TextUtils.isEmpty(editTextPassword.getText())) {
 
                     if (!(password.length() >= 8)) {
 
@@ -75,7 +78,6 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
-
 
 
     }

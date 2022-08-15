@@ -1,18 +1,21 @@
 package de.jukolai.ambiry;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class AudioPlayerActivity extends AppCompatActivity {
 
-    ImageButton playButton,skippreviousButton,skipnextButton,descriptionButton,thumbupButton,commentsButton,playlistaddButton,castButton,arrowDownButton,forwardButton,rewindButtom;
-    TextView textViewTitle,textViewremainingTime,textViewcurrentTime, textViewAudioName;
+    ImageButton playButton, skippreviousButton, skipnextButton, descriptionButton, thumbupButton, commentsButton, playlistaddButton, castButton, arrowDownButton, forwardButton, rewindButtom;
+    TextView textViewTitle, textViewremainingTime, textViewcurrentTime, textViewAudioName;
     SeekBar seekBarDuration;
     MediaPlayer mediaPlayer;
 
@@ -71,8 +74,6 @@ public class AudioPlayerActivity extends AppCompatActivity {
         rewindButtom.setOnClickListener(v -> setRewind());
 
 
-
-
         seekBarDuration.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -92,20 +93,16 @@ public class AudioPlayerActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
     }
 
     private void playPause() throws IOException {
-        if (!mediaPlayer.isPlaying()){
+        if (!mediaPlayer.isPlaying()) {
             playButton.setBackgroundResource(R.drawable.pauseicon);
             mediaPlayer.start();
-           // mediaPlayer.prepareAsync();
+            // mediaPlayer.prepareAsync();
             seekbarUpdateHandler.postDelayed(UpdateSeekbar, 0);
-            textViewUpdateHandler.postDelayed(UpdateTextview,0);
-        }else{
+            textViewUpdateHandler.postDelayed(UpdateTextview, 0);
+        } else {
             playButton.setBackgroundResource(R.drawable.playicon);
             mediaPlayer.pause();
             seekbarUpdateHandler.removeCallbacks(UpdateSeekbar);
@@ -115,12 +112,12 @@ public class AudioPlayerActivity extends AppCompatActivity {
 
     }
 
-    private void skipNext(){
+    private void skipNext() {
 
 
     }
 
-    private void skipPrevious(){
+    private void skipPrevious() {
 
 
     }
@@ -133,7 +130,7 @@ public class AudioPlayerActivity extends AppCompatActivity {
         }
     }
 
-    private void setRewind(){
+    private void setRewind() {
 
         if (mediaPlayer != null) {
             int currentPosition = mediaPlayer.getCurrentPosition();
@@ -142,7 +139,6 @@ public class AudioPlayerActivity extends AppCompatActivity {
 
 
     }
-
 
 
     //updated every 50 millisecons the seekBar
@@ -169,15 +165,12 @@ public class AudioPlayerActivity extends AppCompatActivity {
     };
 
 
-
     // convert from millisecond to hours,minutes and seconds
 
-    public static String getTimeString(long duration){
+    public static String getTimeString(long duration) {
 
         return String.format("%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(duration) % TimeUnit.HOURS.toMinutes(1),
-            TimeUnit.MILLISECONDS.toSeconds(duration) % TimeUnit.MINUTES.toSeconds(1));
-
-
+                TimeUnit.MILLISECONDS.toSeconds(duration) % TimeUnit.MINUTES.toSeconds(1));
 
 
     }
