@@ -16,7 +16,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -24,11 +23,9 @@ public class RegisterActivity extends AppCompatActivity {
     TextView textviewExistingAccount;
     EditText editTextPassword , editTextEmailAdress;
     private String password, email;
-    private Userdata userdata;
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +58,6 @@ public class RegisterActivity extends AppCompatActivity {
 
                 // if a edittext is empty or the password is too short, then get the user a warnung
                 if (!TextUtils.isEmpty(editTextEmailAdress.getText())  || !TextUtils.isEmpty(editTextPassword.getText())) {
-
 
                     if (!(password.length() >= 8)) {
 
@@ -96,10 +92,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     private void isUserLoggedin() {
 
-        /**
-         if the user is logged in, he will be redirected to the Homeactivity
-         */
-
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
 
@@ -119,16 +111,6 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-
-                    FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-
-                    String keyId = databaseReference.push().getKey();
-                    databaseReference.child(keyId).setValue(userdata);
-
-                    FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
-
-
-                    firebaseFirestore.collection("Userdata").document(firebaseAuth.getUid());
 
                     Intent intentHome = new Intent(RegisterActivity.this, MainActivity.class);
                     startActivity(intentHome);
