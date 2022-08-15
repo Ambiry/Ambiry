@@ -81,7 +81,7 @@
                 android:id="@+id/parentRecyclerview"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="80dp"
                 app:layout_constraintEnd_toStartOf="@id/guidelineright"
                 app:layout_constraintStart_toEndOf="@id/guidelineleft"
                 app:layout_constraintTop_toTopOf="@+id/relativelayout">

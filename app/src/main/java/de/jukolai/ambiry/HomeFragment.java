@@ -17,7 +17,7 @@ public class HomeFragment extends Fragment {
 
     TextView textviewGreeting;
     ImageButton imageButtonSettings;
-    RecyclerView recyclerView;
+    RecyclerView parentRecyclerView;
 
 
 
@@ -29,7 +29,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         textviewGreeting = view.findViewById(R.id.textViewWelcome);
         imageButtonSettings = view.findViewById(R.id.imageButtonSettings);
-        recyclerView = view.findViewById(R.id.parentRecyclerview);
+        parentRecyclerView = view.findViewById(R.id.parentRecyclerview);
 
 
         imageButtonSettings.setOnClickListener(v -> {
@@ -46,12 +46,15 @@ public class HomeFragment extends Fragment {
         setWelcomeText();
 
 
-        ArrayList<ChildModel> arrayList = new ArrayList<>();
-
+        ArrayList<ParentModel> parentModelArrayList = new ArrayList<>();
+        ArrayList<ChildModel>  childModelArrayList = new ArrayList<>();
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);
-        ChildRecyclerViewAdapter childRecyclerViewAdapter = new ChildRecyclerViewAdapter(arrayList, getContext());
-        recyclerView.setAdapter(childRecyclerViewAdapter);
+        parentRecyclerView.setLayoutManager(layoutManager);
+
+        parentModelArrayList.add(new ParentModel("Alle Folgen von WDR"));
+
+        ParentRecyclerViewAdapter parentRecyclerViewAdapter = new ParentRecyclerViewAdapter(getContext(), parentModelArrayList,childModelArrayList);
+        parentRecyclerView.setAdapter(parentRecyclerViewAdapter);
 
 
 

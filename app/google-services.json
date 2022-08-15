@@ -1,20 +1,21 @@
 {
   "project_info": {
-    "project_number": "899090665620",
-    "project_id": "jukolai",
-    "storage_bucket": "jukolai.appspot.com"
+    "project_number": "693205784947",
+    "firebase_url": "https://ambiry-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "ambiry",
+    "storage_bucket": "ambiry.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:899090665620:android:e8dfa4ca60d7fa05d7e481",
+        "mobilesdk_app_id": "1:693205784947:android:886cb93c01ffcbeb804d06",
         "android_client_info": {
           "package_name": "de.jukolai.ambiry"
         }
       },
       "oauth_client": [
         {
-          "client_id": "899090665620-k80njkthgs741kuaeeinehbirtq269rg.apps.googleusercontent.com",
+          "client_id": "693205784947-g6o5pqchplp9he05ashmd0gqh7o5r56d.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "de.jukolai.ambiry",
@@ -22,20 +23,20 @@
           }
         },
         {
-          "client_id": "899090665620-t0ci6kkv0spnp9n0qgtaja5lsv7bsd67.apps.googleusercontent.com",
+          "client_id": "693205784947-uj31tqdriq7m91o46plkgkui4cll9g8s.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDHqr-9EOOXbNWx5onPE0TEOvEBZgVxpag"
+          "current_key": "AIzaSyAIES3UhnD-uTkcXkkO37bHm7xlX6NqD_Y"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "899090665620-t0ci6kkv0spnp9n0qgtaja5lsv7bsd67.apps.googleusercontent.com",
+              "client_id": "693205784947-uj31tqdriq7m91o46plkgkui4cll9g8s.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

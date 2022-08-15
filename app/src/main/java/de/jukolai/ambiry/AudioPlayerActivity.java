@@ -3,7 +3,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -54,47 +53,22 @@ public class AudioPlayerActivity extends AppCompatActivity {
         }
 
 
-        playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    playPause();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
+        playButton.setOnClickListener(v -> {
+            try {
+                playPause();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+
         });
 
-        skippreviousButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                skipPrevious();
-            }
-        });
+        skippreviousButton.setOnClickListener(v -> skipPrevious());
 
-        skipnextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                skipNext();
-            }
-        });
+        skipnextButton.setOnClickListener(v -> skipNext());
 
-        forwardButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        forwardButton.setOnClickListener(v -> setForward());
 
-                setForward();
-
-            }
-        });
-
-        rewindButtom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setRewind();
-            }
-        });
+        rewindButtom.setOnClickListener(v -> setRewind());
 
 
 
@@ -155,11 +129,7 @@ public class AudioPlayerActivity extends AppCompatActivity {
 
         if (mediaPlayer != null) {
             int currentPosition = mediaPlayer.getCurrentPosition();
-            if (currentPosition + seekForwardTime <= mediaPlayer.getDuration()) {
-                mediaPlayer.seekTo(currentPosition + seekForwardTime);
-            } else {
-                mediaPlayer.seekTo(mediaPlayer.getDuration());
-            }
+            mediaPlayer.seekTo(Math.min(currentPosition + seekForwardTime, mediaPlayer.getDuration()));
         }
     }
 
@@ -167,11 +137,7 @@ public class AudioPlayerActivity extends AppCompatActivity {
 
         if (mediaPlayer != null) {
             int currentPosition = mediaPlayer.getCurrentPosition();
-            if (currentPosition - seekBackwardTime >= 0) {
-                mediaPlayer.seekTo(currentPosition - seekBackwardTime);
-            } else {
-                mediaPlayer.seekTo(0);
-            }
+            mediaPlayer.seekTo(Math.max(currentPosition - seekBackwardTime, 0));
         }
 
 
@@ -207,8 +173,6 @@ public class AudioPlayerActivity extends AppCompatActivity {
     // convert from millisecond to hours,minutes and seconds
 
     public static String getTimeString(long duration){
-
-        StringBuffer buf = new StringBuffer();
 
         return String.format("%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(duration) % TimeUnit.HOURS.toMinutes(1),
             TimeUnit.MILLISECONDS.toSeconds(duration) % TimeUnit.MINUTES.toSeconds(1));

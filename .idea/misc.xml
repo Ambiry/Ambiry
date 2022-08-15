@@ -17,20 +17,20 @@
         <entry key="app/src/main/res/drawable/roundedbutton.xml" value="0.3435" />
         <entry key="app/src/main/res/drawable/searchviewdesign.xml" value="0.132" />
         <entry key="app/src/main/res/drawable/settingicon.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_audio_player.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_audio_player.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.14" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="app/src/main/res/layout/cardview.xml" value="0.33" />
         <entry key="app/src/main/res/layout/cardview_audioplayer.xml" value="0.348747591522158" />
         <entry key="app/src/main/res/layout/cardview_player.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/child_rv_layout.xml" value="0.340625" />
+        <entry key="app/src/main/res/layout/child_rv_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/createplaylistalertdialog.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/createplaylistdialog.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_about_the_podcast.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_description.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/fragment_episode.xml" value="0.3416666666666667" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.17407407407407408" />
         <entry key="app/src/main/res/layout/fragment_library.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_overview.xml" value="0.3416666666666667" />
@@ -48,7 +48,7 @@
         <entry key="app/src/main/res/layout/librarycardview.xml" value="0.33" />
         <entry key="app/src/main/res/layout/listviewtextcolor.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/listviewwhitetext.xml" value="0.3416666666666667" />
-        <entry key="app/src/main/res/layout/parent_rv_layout.xml" value="0.340625" />
+        <entry key="app/src/main/res/layout/parent_rv_layout.xml" value="0.1527777777777778" />
         <entry key="app/src/main/res/layout/popup.xml" value="0.3416666666666667" />
         <entry key="app/src/main/res/layout/preference.xml" value="0.340625" />
         <entry key="app/src/main/res/layout/preference_layout.xml" value="0.340625" />

@@ -1,7 +1,6 @@
 package de.jukolai.ambiry;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,8 +40,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
 
-        Intent i = new Intent(this, AudioPlayerActivity.class);
-        startActivity(i);
 
         new getDataFromDatabase().execute();
 
@@ -56,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... params) {
-            firebaseDatabase = FirebaseDatabase.getInstance("https://jukolai-default-rtdb.europe-west1.firebasedatabase.app");
+            firebaseDatabase = FirebaseDatabase.getInstance("https://ambiry-default-rtdb.europe-west1.firebasedatabase.app");
             databaseReference = firebaseDatabase.getReference();
 
 
