@@ -14,13 +14,13 @@ import java.util.concurrent.TimeUnit;
 
 public class AudioPlayerActivity extends AppCompatActivity {
 
-    ImageButton playButton, skippreviousButton, skipnextButton, descriptionButton, thumbupButton, commentsButton, playlistaddButton, castButton, arrowDownButton, forwardButton, rewindButtom;
+    ImageButton playButton, skippreviousButton, skipnextButton, descriptionButton, thumbupButton, commentsButton, sleepButton, castButton, arrowDownButton, forwardButton, rewindButtom;
     TextView textViewTitle, textViewremainingTime, textViewcurrentTime, textViewAudioName;
     SeekBar seekBarDuration;
     MediaPlayer mediaPlayer;
 
-    private int seekForwardTime = 30 * 1000; // default 30 second
-    private int seekBackwardTime = 30 * 1000; // default 30 second
+    private final int seekForwardTime = 30 * 1000; // default 30 second
+    private final int seekBackwardTime = 30 * 1000; // default 30 second
 
 
     @Override
@@ -34,7 +34,7 @@ public class AudioPlayerActivity extends AppCompatActivity {
         descriptionButton = findViewById(R.id.shareButton);
         thumbupButton = findViewById(R.id.thumbupButton);
         commentsButton = findViewById(R.id.commentsButton);
-        playlistaddButton = findViewById(R.id.playlistadButton);
+        sleepButton = findViewById(R.id.sleepButton);
         castButton = findViewById(R.id.castbutton);
         textViewTitle = findViewById(R.id.textviewTitle);
         textViewAudioName = findViewById(R.id.textviewArtist);
@@ -142,8 +142,8 @@ public class AudioPlayerActivity extends AppCompatActivity {
 
 
     //updated every 50 millisecons the seekBar
-    private Handler seekbarUpdateHandler = new Handler();
-    private Runnable UpdateSeekbar = new Runnable() {
+    private final Handler seekbarUpdateHandler = new Handler();
+    private final Runnable UpdateSeekbar = new Runnable() {
         @Override
         public void run() {
             seekBarDuration.setMax(mediaPlayer.getDuration());
@@ -154,8 +154,8 @@ public class AudioPlayerActivity extends AppCompatActivity {
 
 
     //updated every 50 millisecons the textviews
-    private Handler textViewUpdateHandler = new Handler();
-    private Runnable UpdateTextview = new Runnable() {
+    private final Handler textViewUpdateHandler = new Handler();
+    private final Runnable UpdateTextview = new Runnable() {
         @Override
         public void run() {
             textViewcurrentTime.setText(getTimeString(mediaPlayer.getCurrentPosition()));

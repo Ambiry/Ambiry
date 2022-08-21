@@ -8,6 +8,7 @@
     tools:context=".AudioPlayerActivity">
 
 
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineleft"
         android:layout_width="wrap_content"
@@ -38,10 +39,21 @@
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/arrowdownicon">
 
+        </ImageButton>
+
+
+        <ImageButton
+            android:id="@+id/downloadbutton"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="70dp"
+            android:background="@drawable/download_icon">
         </ImageButton>
 
 
@@ -51,9 +63,8 @@
             android:layout_height="28dp"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
+            android:layout_marginEnd="25dp"
             android:background="@drawable/casticon">
-
         </ImageButton>
 
 
@@ -63,7 +74,7 @@
         android:id="@+id/textviewArtist"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="50dp"
         android:text="QUARKS SCIENCE COPS"
         android:textAlignment="textStart"
         android:textColor="#ffffff"
@@ -292,10 +303,10 @@ Ein Blumenstrauß voll Blödsinn"
 
 
         <ImageButton
-            android:id="@+id/playlistadButton"
+            android:id="@+id/sleepButton"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:background="@drawable/playlistaddicon">
+            android:background="@drawable/sleep_icon">
 
         </ImageButton>
 
@@ -305,6 +316,5 @@ Ein Blumenstrauß voll Blödsinn"
             android:layout_weight="0.5" />
 
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

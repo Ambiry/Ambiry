@@ -1,11 +1,16 @@
 package de.jukolai.ambiry;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -32,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
 
 
+
+
+
         // if savedinstacestate is null, then show the HomeFragment
         if (savedInstanceState == null) {
 
@@ -43,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+
 
         new getDataFromDatabase().execute();
 
@@ -104,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     // BottomNavigationMenu
-    private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener = item -> {
+    private final BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener = item -> {
         Fragment fragment = null;
 
         switch (item.getItemId()) {

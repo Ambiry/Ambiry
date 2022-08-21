@@ -1,12 +1,9 @@
 package de.jukolai.ambiry;
-
 import android.os.AsyncTask;
 import android.util.Log;
 import android.util.Xml;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -27,8 +24,9 @@ public class Parser extends AsyncTask<ArrayList<Object>, Void, Object> {
     private String category = null;
     private String summary = null;
     private String attribute = null;
+    private String author = null;
     private boolean isItemAvailable = false;
-    InputStream inputStream;
+    private InputStream inputStream;
 
 
     @Override
@@ -41,7 +39,7 @@ public class Parser extends AsyncTask<ArrayList<Object>, Void, Object> {
                 Log.d("once call", arrayList.toString());
 
                 //get the Links of the Arraylist
-                URL rssUrl = new URL((String) arrayList.get(0));
+                URL rssUrl = new URL(arrayList.toString());
 
                 inputStream = rssUrl.openStream();
 
@@ -142,7 +140,7 @@ public class Parser extends AsyncTask<ArrayList<Object>, Void, Object> {
                             }
                         }
 
-                    } else if (name.equalsIgnoreCase("category")) {
+                    } else if (name.equalsIgnoreCase("category") | name.equalsIgnoreCase("itunes:category") ) {
 
                         Log.d("XmlParser", "Parsing category ==> " + result);
                         category = result;
@@ -151,19 +149,20 @@ public class Parser extends AsyncTask<ArrayList<Object>, Void, Object> {
 
                         Log.d("XmlParser", "Parsing summary ==> " + result);
                         summary = result;
+                    }else if (name.equalsIgnoreCase("itunes:author")) {
+
+                        Log.d("XmlParser", "Parsing author ==> " + result);
+                        author = result;
                     }
 
-                    //get the Information of RSS-Feed
+                    //get the Information of RSS-Feeds
                     if (isItemAvailable) {
 
-                        ChildModel childModel = new ChildModel(title, description, image, date, duration, audioUrl, keywords, summary);
+                        ChildModel childModel = new ChildModel(title, description, image, date, duration, audioUrl, keywords, summary, author);
                         List<ChildModel> childModelList = new ArrayList<>();
                         childModelList.add(childModel);
 
-                        //get the category
-                        ParentModel parentModel = new ParentModel(category);
-                        List<ParentModel> parentModelList = new ArrayList<>();
-                        parentModelList.add(parentModel);
+
                     }
                 }
 
@@ -177,6 +176,7 @@ public class Parser extends AsyncTask<ArrayList<Object>, Void, Object> {
                 audioUrl = null;
                 category = null;
                 summary = null;
+                author = null;
                 isItemAvailable = false;
             }
 
@@ -188,6 +188,7 @@ public class Parser extends AsyncTask<ArrayList<Object>, Void, Object> {
         return isItemAvailable;
 
     }
+
 
 }
 
