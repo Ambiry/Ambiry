@@ -1,4 +1,5 @@
 package de.jukolai.ambiry;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -100,21 +101,22 @@ public class HomeFragment extends Fragment {
 
     private void setWelcomeText() {
 
-        //get current Time
-        int currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        Calendar c = Calendar.getInstance();
+        int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
 
-        if (currentHour < 12) {
+        if (timeOfDay >= 0 && timeOfDay < 12) {
 
             textviewGreeting.setText(R.string.goodMorning);
 
-        } else if (currentHour >= 20) {
+        } else if (timeOfDay >= 12 && timeOfDay < 18) {
 
             textviewGreeting.setText(R.string.goodDay);
 
-        } else {
-
+        } else if (timeOfDay >= 18 && timeOfDay < 24) {
             textviewGreeting.setText(R.string.goodEvening);
+
         }
+
     }
 
 }
