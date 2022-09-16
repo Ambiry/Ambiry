@@ -2,9 +2,6 @@ package de.jukolai.ambiry;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +14,10 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +42,6 @@ public class PlaylistFragment extends Fragment implements AdapterView.OnItemSele
         imageViewEmpty = view.findViewById(R.id.imageView_empty);
 
 
-
         // Recylerview
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -61,22 +61,19 @@ public class PlaylistFragment extends Fragment implements AdapterView.OnItemSele
 
     private void createPlaylist() {
 
-        View view = getLayoutInflater().inflate(R.layout.createplaylistdialog, null);
+        View view = getLayoutInflater().inflate(R.layout.dialogplaylistlayout, null);
 
-        // Fullscreen
         Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(view);
         dialog.show();
 
-        Button cancelButton = new Button(getActivity());
-        Button doneButton = new Button(getActivity());
-        EditText editTextName = new EditText(getActivity());
-        Spinner spinner = new Spinner(getActivity());
-
+        Button cancelButton;
+        Button doneButton;
+        EditText editTextName;
+        Spinner spinner;
 
 
         cancelButton = dialog.findViewById(R.id.cancelButton);
-        editTextName = dialog.findViewById(R.id.editTextPlaylist);
         doneButton = dialog.findViewById(R.id.DoneButton);
         spinner = dialog.findViewById(R.id.spinner);
 
@@ -91,20 +88,9 @@ public class PlaylistFragment extends Fragment implements AdapterView.OnItemSele
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(dataAdapter);
 
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
+        cancelButton.setOnClickListener(v -> dialog.dismiss());
 
-        doneButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "Erstellen!", Toast.LENGTH_SHORT).show();
-
-            }
-        });
+        doneButton.setOnClickListener(v -> Toast.makeText(getActivity(), "Erstellt!", Toast.LENGTH_SHORT).show());
 
 
     }
@@ -112,7 +98,7 @@ public class PlaylistFragment extends Fragment implements AdapterView.OnItemSele
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-       // Toast.makeText(getActivity(), position, Toast.LENGTH_LONG).show();
+        // Toast.makeText(getActivity(), position, Toast.LENGTH_LONG).show();
 
     }
 

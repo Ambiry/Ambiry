@@ -1,16 +1,12 @@
 package de.jukolai.ambiry;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Window;
-import android.view.WindowManager;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +19,32 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    // BottomNavigationMenu
+    private final BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener = item -> {
+        Fragment fragment = null;
+
+        switch (item.getItemId()) {
+
+            case R.id.home:
+
+                fragment = new HomeFragment();
+                break;
+
+            case R.id.search:
+
+                fragment = new SearchFragment();
+                break;
+
+            case R.id.library:
+
+                fragment = new LibraryFragment();
+                break;
+        }
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).addToBackStack("HomeFragment").commit();
+
+        return true;
+    };
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     private ArrayList<Object> links;
@@ -37,9 +59,6 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
 
 
-
-
-
         // if savedinstacestate is null, then show the HomeFragment
         if (savedInstanceState == null) {
 
@@ -47,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
 
     @Override
     protected void onStart() {
@@ -58,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
     }
-
 
     //get the Links from Firebase
     private class getDataFromDatabase extends AsyncTask<String, Void, String> {
@@ -104,38 +121,14 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
+
+            Toast.makeText(MainActivity.this, "Inhalt geladen!", Toast.LENGTH_SHORT).show();
+
         }
 
         @Override
         protected void onProgressUpdate(Void... values) {
+
         }
     }
-
-
-    // BottomNavigationMenu
-    private final BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener = item -> {
-        Fragment fragment = null;
-
-        switch (item.getItemId()) {
-
-            case R.id.home:
-
-                fragment = new HomeFragment();
-                break;
-
-            case R.id.search:
-
-                fragment = new SearchFragment();
-                break;
-
-            case R.id.library:
-
-                fragment = new LibraryFragment();
-                break;
-        }
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
-
-        return true;
-    };
 }

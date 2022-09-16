@@ -1,7 +1,5 @@
 package de.jukolai.ambiry;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,19 +7,45 @@ import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class AudioPlayerActivity extends AppCompatActivity {
 
+    //updated every 50 millisecons the seekBar
+    private final Handler seekbarUpdateHandler = new Handler();
+    //updated every 50 millisecons the textviews
+    private final Handler textViewUpdateHandler = new Handler();
     ImageButton playButton, skippreviousButton, skipnextButton, descriptionButton, thumbupButton, commentsButton, sleepButton, castButton, arrowDownButton, forwardButton, rewindButtom;
     TextView textViewTitle, textViewremainingTime, textViewcurrentTime, textViewAudioName;
     SeekBar seekBarDuration;
     MediaPlayer mediaPlayer;
+    private final Runnable UpdateSeekbar = new Runnable() {
+        @Override
+        public void run() {
+            seekBarDuration.setMax(mediaPlayer.getDuration());
+            seekBarDuration.setProgress(mediaPlayer.getCurrentPosition());
+            seekbarUpdateHandler.postDelayed(this, 50);
+        }
+    };
+    private final Runnable UpdateTextview = new Runnable() {
+        @Override
+        public void run() {
+            textViewcurrentTime.setText(getTimeString(mediaPlayer.getCurrentPosition()));
+            textViewremainingTime.setText(getTimeString(mediaPlayer.getDuration()));
+            seekbarUpdateHandler.postDelayed(this, 50);
+        }
+    };
 
-    private final int seekForwardTime = 30 * 1000; // default 30 second
-    private final int seekBackwardTime = 30 * 1000; // default 30 second
+    public static String getTimeString(long duration) {
 
+        return String.format("%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(duration) % TimeUnit.HOURS.toMinutes(1),
+                TimeUnit.MILLISECONDS.toSeconds(duration) % TimeUnit.MINUTES.toSeconds(1));
+
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,51 +150,23 @@ public class AudioPlayerActivity extends AppCompatActivity {
 
         if (mediaPlayer != null) {
             int currentPosition = mediaPlayer.getCurrentPosition();
+            // default 30 second
+            int seekForwardTime = 30 * 1000;
             mediaPlayer.seekTo(Math.min(currentPosition + seekForwardTime, mediaPlayer.getDuration()));
         }
     }
+
+
+    // convert from millisecond to hours,minutes and seconds
 
     private void setRewind() {
 
         if (mediaPlayer != null) {
             int currentPosition = mediaPlayer.getCurrentPosition();
+            // default 30 second
+            int seekBackwardTime = 30 * 1000;
             mediaPlayer.seekTo(Math.max(currentPosition - seekBackwardTime, 0));
         }
-
-
-    }
-
-
-    //updated every 50 millisecons the seekBar
-    private final Handler seekbarUpdateHandler = new Handler();
-    private final Runnable UpdateSeekbar = new Runnable() {
-        @Override
-        public void run() {
-            seekBarDuration.setMax(mediaPlayer.getDuration());
-            seekBarDuration.setProgress(mediaPlayer.getCurrentPosition());
-            seekbarUpdateHandler.postDelayed(this, 50);
-        }
-    };
-
-
-    //updated every 50 millisecons the textviews
-    private final Handler textViewUpdateHandler = new Handler();
-    private final Runnable UpdateTextview = new Runnable() {
-        @Override
-        public void run() {
-            textViewcurrentTime.setText(getTimeString(mediaPlayer.getCurrentPosition()));
-            textViewremainingTime.setText(getTimeString(mediaPlayer.getDuration()));
-            seekbarUpdateHandler.postDelayed(this, 50);
-        }
-    };
-
-
-    // convert from millisecond to hours,minutes and seconds
-
-    public static String getTimeString(long duration) {
-
-        return String.format("%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(duration) % TimeUnit.HOURS.toMinutes(1),
-                TimeUnit.MILLISECONDS.toSeconds(duration) % TimeUnit.MINUTES.toSeconds(1));
 
 
     }

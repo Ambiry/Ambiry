@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/blue"
     tools:context=".OverviewFragment">
 
@@ -26,11 +26,11 @@
         android:id="@+id/imageButtonBackbutton"
         android:layout_width="28dp"
         android:layout_height="28dp"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/backbuttonicon"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ImageButton
@@ -40,8 +40,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/notificationicon"
         app:layout_constraintEnd_toStartOf="@id/guidelineright"
-        app:layout_constraintTop_toTopOf="parent">
-    </ImageButton>
+        app:layout_constraintTop_toTopOf="parent"></ImageButton>
 
 
     <ImageView
@@ -49,9 +48,9 @@
         android:layout_width="320dp"
         android:layout_height="288dp"
         android:layout_marginTop="60dp"
+        android:background="@drawable/imageview_border"
         android:scaleType="fitXY"
         android:src="@drawable/podcasticon"
-        android:background="@drawable/imageview_border"
         app:layout_constraintEnd_toStartOf="@id/guidelineright"
         app:layout_constraintStart_toStartOf="@+id/guidelineleft"
         app:layout_constraintTop_toTopOf="parent" />
@@ -67,18 +66,17 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@id/guidelineright"
         app:layout_constraintStart_toEndOf="@id/guidelineleft"
-        app:layout_constraintTop_toTopOf="parent">
-    </TextView>
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="400dp"
         android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toStartOf="@id/guidelineright"
         app:layout_constraintStart_toEndOf="@id/guidelineleft"
         app:layout_constraintTop_toTopOf="parent"
-        android:orientation="horizontal"
         tools:ignore="ExtraText">
 
         //add backgroundTint and after that your background color will appear
@@ -117,24 +115,24 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="450dp"
         android:background="#1D2C3B"
-        app:tabIndicatorColor="#ffffff"
-        app:tabSelectedTextColor="#ffffff"
-        app:tabTextColor="#ffffff"
         app:layout_constraintEnd_toStartOf="@id/guidelineright"
         app:layout_constraintStart_toEndOf="@id/guidelineleft"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabIndicatorColor="#ffffff"
+        app:tabSelectedTextColor="#ffffff"
+        app:tabTextColor="#ffffff">
 
     </com.google.android.material.tabs.TabLayout>
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpager"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_marginTop="500dp"
-        app:tabTextAppearance="?android:attr/textAppearanceSmall"
         app:layout_constraintEnd_toStartOf="@id/guidelineright"
         app:layout_constraintStart_toEndOf="@id/guidelineleft"
-        app:layout_constraintTop_toTopOf="parent">
-    </androidx.viewpager2.widget.ViewPager2>
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabTextAppearance="?android:attr/textAppearanceSmall"></androidx.viewpager2.widget.ViewPager2>
 
     <RelativeLayout
         android:layout_width="0dp"

@@ -4,8 +4,8 @@ import java.util.List;
 
 public class ParentModel {
 
-    private String Category;
     List<ChildModel> childModelList;
+    private String Category;
 
 
     public ParentModel(String category, List<ChildModel> childModelList) {
@@ -16,7 +16,6 @@ public class ParentModel {
     public List<ChildModel> getParentModelList() {
         return childModelList;
     }
-
 
 
     public void setCategoryItemList(List<ChildModel> categoryItemList) {

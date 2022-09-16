@@ -1,8 +1,5 @@
 package de.jukolai.ambiry;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,8 +9,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,10 +27,11 @@ public class RegisterActivity extends AppCompatActivity {
     Button registerButton;
     TextView textviewExistingAccount;
     EditText editTextPassword, editTextEmailAdress;
-    private String password, email;
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    private String password, email;
+    ConstraintLayout constraintLayoutRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
         textviewExistingAccount = findViewById(R.id.textviewExistingAccount);
         editTextEmailAdress = findViewById(R.id.editTextEmailAdress);
         editTextPassword = findViewById(R.id.editTextPassword);
+        constraintLayoutRegister = findViewById(R.id.constraintRegister);
 
 
         // if the user has a account then goto login page
@@ -62,18 +66,13 @@ public class RegisterActivity extends AppCompatActivity {
                 // if a edittext is empty or the password is too short, then get the user a warnung
                 if (!TextUtils.isEmpty(editTextEmailAdress.getText()) || !TextUtils.isEmpty(editTextPassword.getText())) {
 
-                    if (!(password.length() >= 8)) {
+                    if (!(password.length() >= 8) || !email.contains("@") ) {
 
-                        Toast.makeText(RegisterActivity.this, "Passwort musst mindestens 8 Zeichen haben!", Toast.LENGTH_LONG).show();
+                        Snackbar.make(constraintLayoutRegister, "E-Mail-Adresse richtig oder Passwort zu klein?",Snackbar.LENGTH_LONG).show();
+
                         return;
                     }
 
-                    if (!email.contains("@")) {
-
-                        Toast.makeText(RegisterActivity.this, "Geben sie eine richtige E-Mail-Adresse ein!", Toast.LENGTH_LONG).show();
-                        return;
-
-                    }
                     createUserAccount(email, password);
                 }
             }

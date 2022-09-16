@@ -5,26 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue"
+    android:id="@+id/constraintRegister"
     tools:context=".RegisterActivity">
 
     <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/container" />
+        android:layout_height="match_parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineleft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="20dp" />
+        app:layout_constraintGuide_begin="10dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineright"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_end="20dp" />
+        app:layout_constraintGuide_end="10dp" />
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -32,21 +33,23 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="290dp"
+        android:hint="@string/EMail"
+        android:maxLines="1"
         android:textColorHint="#FFFFFF"
         app:hintTextAppearance="@style/TextInputLayoutTextColor"
-        app:startIconDrawable="@drawable/emailicon"
         app:layout_constraintEnd_toStartOf="@id/guidelineright"
         app:layout_constraintStart_toEndOf="@id/guidelineleft"
         app:layout_constraintTop_toTopOf="parent"
-        android:hint="@string/EMail">
+        app:startIconDrawable="@drawable/emailicon">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextEmailAdress"
-            android:textColor="@color/white"
-            android:backgroundTint="#7DBADD"
-            android:maxLines="1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:backgroundTint="#7DBADD"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/white" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,26 +59,25 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="360dp"
-        app:endIconMode="password_toggle"
+        android:hint="@string/Password"
         android:textColorHint="#FFFFFF"
+        app:endIconMode="password_toggle"
         app:hintTextAppearance="@style/TextInputLayoutTextColor"
-        app:startIconDrawable="@drawable/passwordicon"
         app:layout_constraintEnd_toStartOf="@id/guidelineright"
         app:layout_constraintStart_toEndOf="@id/guidelineleft"
         app:layout_constraintTop_toTopOf="parent"
-        android:hint="@string/Password">
+        app:startIconDrawable="@drawable/passwordicon">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextPassword"
-            android:textColor="@color/white"
-            android:backgroundTint="#7DBADD"
-            android:maxLines="1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:backgroundTint="#7DBADD"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/white" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-
 
 
     <TextView
@@ -85,8 +87,8 @@
         android:layout_marginTop="436dp"
         android:layout_marginRight="50dp"
         android:text="@string/Terms_of_Use"
-        android:textStyle="bold"
         android:textColor="#ffffff"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@id/guidelineright"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/guidelineleft"
@@ -98,8 +100,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="460dp"
         android:text="@string/AGB"
-        android:textStyle="bold"
         android:textColor="#ffffff"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@id/guidelineright"
         app:layout_constraintStart_toEndOf="@id/guidelineleft"
         app:layout_constraintTop_toTopOf="parent" />
@@ -110,10 +112,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="544dp"
+        android:backgroundTint="#7DBADD"
         android:text="@string/RegisterButton"
         android:textAllCaps="false"
         android:textColor="#ffffff"
-        android:backgroundTint="#7DBADD"
         app:layout_constraintEnd_toStartOf="@id/guidelineright"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/guidelineleft"
@@ -125,8 +127,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="@string/ExistingAccount"
-        android:textStyle="bold"
         android:textColor="#ffffff"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

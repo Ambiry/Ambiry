@@ -1,10 +1,11 @@
 package de.jukolai.ambiry;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceFragmentCompat;
+
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -15,7 +16,6 @@ public class SettingsFragment extends PreferenceFragmentCompat {
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
 
         setPreferencesFromResource(R.xml.preference, rootKey);
-
 
 
         findPreference("LogoutButton").setOnPreferenceClickListener(preference -> {
@@ -38,6 +38,5 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         });
 
     }
-
 
 }
