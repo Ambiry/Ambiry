@@ -1,10 +1,18 @@
 package de.jukolai.ambiry;
 
+import android.app.Activity;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.util.Xml;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -16,6 +24,7 @@ public class Parser extends AsyncTask<ArrayList<Object>, Void, Object> {
 
     public static List<ParentModel> parentModelList = new ArrayList<>();
     private final List<ChildModel> childModelList = new ArrayList<>();
+    private final MainActivity mainActivity;
     private String title = null;
     private String links = null;
     private String description = null;
@@ -29,6 +38,12 @@ public class Parser extends AsyncTask<ArrayList<Object>, Void, Object> {
     private String attribute = null;
     private String author = null;
     private boolean isItemAvailable = false;
+
+    public Parser(Activity activity) {
+
+        this.mainActivity = (MainActivity) activity;
+
+    }
 
     @Override
     protected final Object doInBackground(ArrayList<Object>... linksArrayList) {
@@ -131,6 +146,7 @@ public class Parser extends AsyncTask<ArrayList<Object>, Void, Object> {
                             int attributeCount = xmlPullParser.getAttributeCount();
 
                             for (int i = 0; i < attributeCount; i++) {
+
                                 attribute = xmlPullParser.getAttributeName(i);
 
                                 if (attribute.equalsIgnoreCase("url")) {
@@ -156,10 +172,26 @@ public class Parser extends AsyncTask<ArrayList<Object>, Void, Object> {
                             author = result;
                         }
 
-                        //get the Information of RSS-Feeds
+
+                        //Get the values from the RSS feed and set the value in the Recyclerview
                         if (isItemAvailable) {
 
-                            childModelList.add(new ChildModel(title, description, image, date, duration, audioURL, keywords, summary, author));
+
+                            //updated the UI
+                            Handler handler = new Handler(Looper.getMainLooper());
+                            handler.post(() -> {
+
+                                childModelList.add(new ChildModel(title, description, image, date, duration, audioURL, keywords, summary, author));
+                                parentModelList.add(new ParentModel(category, childModelList));
+
+                                RecyclerView recyclerView = mainActivity.findViewById(R.id.parentRecyclerview);
+                                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(mainActivity);
+                                recyclerView.setLayoutManager(layoutManager);
+                                ParentRecyclerViewAdapter parentRecyclerViewAdapter = new ParentRecyclerViewAdapter(mainActivity, parentModelList);
+                                recyclerView.setNestedScrollingEnabled(false);
+                                recyclerView.setAdapter(parentRecyclerViewAdapter);
+
+                            });
 
                         }
 

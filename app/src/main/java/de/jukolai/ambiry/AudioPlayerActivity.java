@@ -22,6 +22,7 @@ public class AudioPlayerActivity extends AppCompatActivity {
     TextView textViewTitle, textViewremainingTime, textViewcurrentTime, textViewAudioName;
     SeekBar seekBarDuration;
     MediaPlayer mediaPlayer;
+    //update all component
     private final Runnable UpdateSeekbar = new Runnable() {
         @Override
         public void run() {
@@ -39,6 +40,7 @@ public class AudioPlayerActivity extends AppCompatActivity {
         }
     };
 
+    // convert from millisecond to hours,minutes and seconds
     public static String getTimeString(long duration) {
 
         return String.format("%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(duration) % TimeUnit.HOURS.toMinutes(1),
@@ -147,7 +149,6 @@ public class AudioPlayerActivity extends AppCompatActivity {
     }
 
     private void setForward() {
-
         if (mediaPlayer != null) {
             int currentPosition = mediaPlayer.getCurrentPosition();
             // default 30 second
@@ -155,9 +156,6 @@ public class AudioPlayerActivity extends AppCompatActivity {
             mediaPlayer.seekTo(Math.min(currentPosition + seekForwardTime, mediaPlayer.getDuration()));
         }
     }
-
-
-    // convert from millisecond to hours,minutes and seconds
 
     private void setRewind() {
 

@@ -31,6 +31,8 @@
 
     <string name="cancel">Abbrechen</string>
 
+    <string name="Offline">Du bist Offline!</string>
+
 
     <string name="FirstName">Vorname</string>
     <string name="EMail">E-Mail</string>

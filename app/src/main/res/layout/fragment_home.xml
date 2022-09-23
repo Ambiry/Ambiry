@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue"
+    android:id="@+id/constrainLayoutHome"
     tools:context=".HomeFragment">
 
     <androidx.constraintlayout.widget.Guideline
@@ -66,6 +67,7 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_alignParentEnd="true"
+                android:contentDescription="SettingsButton"
                 android:background="@drawable/settingicon"
                 app:civ_border_color="#1D2C3B"
                 app:civ_border_width="2dp" />

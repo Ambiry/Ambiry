@@ -1,9 +1,10 @@
 package de.jukolai.ambiry;
 
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         return true;
     };
+    NetworkChangeListener networkChangeListener = new NetworkChangeListener(MainActivity.this, this);
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     private ArrayList<Object> links;
@@ -70,11 +72,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
 
-
         new getDataFromDatabase().execute();
+
+        IntentFilter intentFilter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeListener, intentFilter);
 
         super.onStart();
 
+    }
+
+
+    @Override
+    protected void onStop() {
+        unregisterReceiver(networkChangeListener);
+        super.onStop();
     }
 
     //get the Links from Firebase
@@ -115,14 +126,12 @@ public class MainActivity extends AppCompatActivity {
 
         protected void onPostExecute(ArrayList getArrayListLinks) {
 
-            new Parser().execute(getArrayListLinks);
+            new Parser(MainActivity.this).execute(getArrayListLinks);
 
         }
 
         @Override
         protected void onPreExecute() {
-
-            Toast.makeText(MainActivity.this, "Inhalt geladen!", Toast.LENGTH_SHORT).show();
 
         }
 

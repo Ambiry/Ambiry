@@ -1,21 +1,17 @@
 package de.jukolai.ambiry;
 
-import android.app.AlertDialog;
+import static android.content.ContentValues.TAG;
+
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.util.Log;
-import android.util.TypedValue;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -45,42 +41,21 @@ public class LoginActivity extends AppCompatActivity {
 
         textViewForgotPassword.setOnClickListener(v -> {
 
-            AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
-            LinearLayout mLayout = new LinearLayout(this);
-            TextView textView  = new TextView(this);
-            final EditText editText = new EditText(this);
-            editText.setTextColor(Color.BLACK);
+            View view = getLayoutInflater().inflate(R.layout.dialogpasswordlayout, null);
 
-            textView.setTextColor(Color.BLACK);
-            textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f);
-            textView.setSingleLine();
-            mLayout.setOrientation(LinearLayout.VERTICAL);
-            mLayout.addView(textView);
-            mLayout.addView(editText);
-            mLayout.setPadding(50, 40, 50, 10);
+            Dialog dialog = new Dialog(this);
+            dialog.setContentView(view);
 
-            mBuilder.setView(mLayout);
+            EditText editText;
+            Button button;
 
-            mBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    Toast.makeText(LoginActivity.this, "Canceled", Toast.LENGTH_SHORT).show();
-                }
-            });
-            mBuilder.setPositiveButton("senden", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    String setMailAdress = editText.getText().toString();
+            button = dialog.findViewById(R.id.DoneButton);
+            editText = dialog.findViewById(R.id.resetPasswordEditText);
 
-                    if (TextUtils.isEmpty(setMailAdress)){
+            button.setOnClickListener(v1 -> resetPassword(editText.getText().toString()));
 
-                        // send ResetMail
-                    }
+            dialog.show();
 
-                }
-            });
-
-            mBuilder.create().show();
 
         });
 
@@ -99,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
 
         if (editTextEmailAdress.getText().toString().isEmpty() || editTextPassword.getText().toString().isEmpty()) {
 
-            Snackbar.make(constraintLogin, "Bitte alle Felder ausfüllen!",Snackbar.LENGTH_LONG).show();
+            Snackbar.make(constraintLogin, "Bitte alle Felder ausfüllen!", Snackbar.LENGTH_LONG).show();
 
             return;
 
@@ -124,9 +99,22 @@ public class LoginActivity extends AppCompatActivity {
                         // If sign in fails, display a message to the user.
                         Log.w("LOG", "signInWithEmail:failure", task.getException());
 
-                        Snackbar.make(constraintLogin, "Die Anmeldung war nicht erfolgreich!",Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(constraintLogin, "Die Anmeldung war nicht erfolgreich!", Snackbar.LENGTH_LONG).show();
                     }
 
+                });
+
+
+    }
+
+    private void resetPassword(String Mail) {
+
+        FirebaseAuth.getInstance().sendPasswordResetEmail(Mail)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        Log.d(TAG, "Email sent.");
+                        Snackbar.make(constraintLogin, "E-Mail wurde versendet!", Snackbar.LENGTH_LONG).show();
+                    }
                 });
 
 
